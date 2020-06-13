@@ -61,7 +61,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FaM-zF-7x0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="957.97101449275374" y="132.58928571428572"/>
+            <point key="canvasLocation" x="978" y="133"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Kcc-Ex-bcV">
@@ -86,11 +86,11 @@
             <objects>
                 <viewController id="Jcr-LI-394" customClass="MealViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nrj-Eu-6I9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Je9-wi-XHi">
-                                <rect key="frame" x="20" y="76" width="374" height="100.5"/>
+                                <rect key="frame" x="20" y="108" width="374" height="100.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUY-XX-VGe">
                                         <rect key="frame" x="0.0" y="0.0" width="86.5" height="20.5"/>
@@ -131,6 +131,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Which Meal" id="oT9-Q4-Gja">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Gaq-P0-bGe">
+                            <connections>
+                                <action selector="cancel:" destination="Jcr-LI-394" id="qpc-eT-ZG2"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Z0T-Sz-cI6">
                             <connections>
                                 <segue destination="E9f-XJ-Iir" kind="unwind" unwindAction="unwindToMealListWithSender:" id="3Yy-cw-JX9"/>
@@ -146,7 +151,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HwX-nF-fP9" sceneMemberID="firstResponder"/>
                 <exit id="E9f-XJ-Iir" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2607" y="133"/>
+            <point key="canvasLocation" x="2603" y="117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lp0-LX-9Ne">
@@ -164,10 +169,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWH-sK-vFY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1786" y="198"/>
+            <point key="canvasLocation" x="1788" y="227"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0pe-eA-SL5"/>
+        <segue reference="VSI-NB-GpM"/>
     </inferredMetricsTieBreakers>
 </document>
