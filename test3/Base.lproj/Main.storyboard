@@ -24,16 +24,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99G-O8-ya2">
-                                            <rect key="frame" x="20" y="35" width="170" height="21"/>
+                                            <rect key="frame" x="20" y="11" width="170" height="45"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLR-vU-EQT">
-                                            <rect key="frame" x="224" y="35" width="170" height="21"/>
+                                            <rect key="frame" x="224" y="11" width="170" height="45"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -50,11 +50,17 @@
                             <outlet property="delegate" destination="GT9-Tu-16a" id="92V-28-lf0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="World Watch" id="4rF-Fb-Q7r"/>
+                    <navigationItem key="navigationItem" title="World Watch" id="4rF-Fb-Q7r">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="OtF-9Z-WZc">
+                            <connections>
+                                <segue destination="MG7-3J-SR9" kind="presentation" id="sUs-1Y-ynQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FaM-zF-7x0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="884" y="133"/>
+            <point key="canvasLocation" x="957.97101449275374" y="132.58928571428572"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Kcc-Ex-bcV">
@@ -74,16 +80,16 @@
             </objects>
             <point key="canvasLocation" x="179.71014492753625" y="132.58928571428572"/>
         </scene>
-        <!--Meal View Controller-->
+        <!--Which Meal-->
         <scene sceneID="2Ll-Y2-93u">
             <objects>
                 <viewController id="Jcr-LI-394" customClass="MealViewController" customModule="test3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nrj-Eu-6I9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Je9-wi-XHi">
-                                <rect key="frame" x="20" y="64" width="374" height="100.5"/>
+                                <rect key="frame" x="20" y="76" width="374" height="100.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUY-XX-VGe">
                                         <rect key="frame" x="0.0" y="0.0" width="86.5" height="20.5"/>
@@ -123,14 +129,42 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Which Meal" id="oT9-Q4-Gja">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="A8u-Sy-we5"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Z0T-Sz-cI6">
+                            <connections>
+                                <segue destination="E9f-XJ-Iir" kind="unwind" unwindAction="unwindToMealListWithSender:" id="3Yy-cw-JX9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mealNameLabel" destination="SUY-XX-VGe" id="ppQ-hv-Kxh"/>
                         <outlet property="nameTextField" destination="6Il-Mj-OVA" id="sxh-X3-YZO"/>
+                        <outlet property="saveButton" destination="Z0T-Sz-cI6" id="WUZ-t2-sGQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HwX-nF-fP9" sceneMemberID="firstResponder"/>
+                <exit id="E9f-XJ-Iir" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1567" y="133"/>
+            <point key="canvasLocation" x="2570" y="133"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lp0-LX-9Ne">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MG7-3J-SR9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sLL-Y4-BUB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Jcr-LI-394" kind="relationship" relationship="rootViewController" id="0pe-eA-SL5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uWH-sK-vFY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1762" y="133"/>
         </scene>
     </scenes>
 </document>
