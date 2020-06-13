@@ -42,6 +42,7 @@
                                 <connections>
                                     <outlet property="cityName" destination="99G-O8-ya2" id="wrq-oP-tDe"/>
                                     <outlet property="timezone" destination="qLR-vU-EQT" id="EgI-Wg-vxl"/>
+                                    <segue destination="Jcr-LI-394" kind="show" identifier="ShowDetail" id="VSI-NB-GpM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -53,7 +54,7 @@
                     <navigationItem key="navigationItem" title="World Watch" id="4rF-Fb-Q7r">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="OtF-9Z-WZc">
                             <connections>
-                                <segue destination="MG7-3J-SR9" kind="presentation" id="sUs-1Y-ynQ"/>
+                                <segue destination="MG7-3J-SR9" kind="presentation" identifier="AddItem" id="sUs-1Y-ynQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -130,7 +131,6 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Which Meal" id="oT9-Q4-Gja">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="A8u-Sy-we5"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Z0T-Sz-cI6">
                             <connections>
                                 <segue destination="E9f-XJ-Iir" kind="unwind" unwindAction="unwindToMealListWithSender:" id="3Yy-cw-JX9"/>
@@ -146,7 +146,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HwX-nF-fP9" sceneMemberID="firstResponder"/>
                 <exit id="E9f-XJ-Iir" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2570" y="133"/>
+            <point key="canvasLocation" x="2607" y="133"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lp0-LX-9Ne">
@@ -164,7 +164,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWH-sK-vFY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1762" y="133"/>
+            <point key="canvasLocation" x="1786" y="198"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="0pe-eA-SL5"/>
+    </inferredMetricsTieBreakers>
 </document>

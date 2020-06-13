@@ -13,7 +13,7 @@ import os.log
 class MealViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
     
     //MARK: Navigation
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         super.prepare(for: segue, sender: sender)
@@ -48,6 +48,13 @@ class MealViewController: UIViewController, UITextFieldDelegate, UINavigationCon
         super.viewDidLoad()
         // Handle the text field’s user input through delegate callbacks.
         nameTextField.delegate = self
+        
+        // Set up views if editing an existing Meal.
+        if let meal = meal {
+            navigationItem.title = meal.city
+            nameTextField.text   = meal.city
+            mealNameLabel.text   = meal.timezone
+        }
         
         // Enable the Save button only if the text field has a valid Meal name.
         updateSaveButtonState()
