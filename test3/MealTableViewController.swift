@@ -110,7 +110,7 @@ class MealTableViewController: UITableViewController {
         switch(segue.identifier ?? "") {
             
         case "AddItem":
-            os_log("Adding a new meal.", log: OSLog.default, type: .debug)
+            os_log("Adding a new region.", log: OSLog.default, type: .debug)
             
         case "ShowDetail":
             
