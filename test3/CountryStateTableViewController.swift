@@ -106,7 +106,7 @@ class CountryStateTableViewController: UITableViewController, UINavigationContro
             if search.count == 1 {
                 let tz = TimeZone(identifier: search[0])
                 
-                guard let meal = Meal(city: city, timezone: tz?.abbreviation() ?? "oops") else {
+                guard let meal = Meal(city: city, timezone: search[0]) else {
                     fatalError("Unable to instantiate meal")
                 }
                 smallmeals += [meal]
@@ -142,7 +142,6 @@ class CountryStateTableViewController: UITableViewController, UINavigationContro
             
             let selectedSmall = smallmeals[indexPath.row]
             print(selectedSmall)
-            //countryStateTableViewController.selectedBig = selectedBig
             
             let city = selectedSmallCell.smallTextLabel.text ?? ""
             let tzlabel = selectedSmallCell.timeZoneIdTextLabel.text ?? ""

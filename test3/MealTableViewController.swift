@@ -56,9 +56,12 @@ class MealTableViewController: UITableViewController {
         
         // Fetches the appropriate meal for the data source layout.
         let meal = meals[indexPath.row]
-        
-        cell.cityName.text = meal.city
-        cell.timezone.text = meal.timezone
+                
+        cell.cityLabel.text = meal.city
+        cell.dateLabel.text = meal.getCurrentDateWithTimeZone()
+        cell.timeLabel.text = meal.getCurrentTimeWithTimeZone()
+        cell.standardNameLabel.text = meal.getName()
+        cell.abbrLabel.text = meal.getShortName()
         
         return cell
     }
@@ -189,19 +192,42 @@ class MealTableViewController: UITableViewController {
      
     private func loadSampleMeals() {
 
-        guard let meal1 = Meal(city: "Sydney", timezone: "2020/06/11 03:12") else {
+        guard let meal1 = Meal(city: "Sydney", timezone: "Australia/Sydney") else {
             fatalError("Unable to instantiate meal1")
         }
          
-        guard let meal2 = Meal(city: "Cape Town", timezone: "2020/06/11 19:12") else {
+        guard let meal2 = Meal(city: "Tokyo", timezone: "Asia/Tokyo") else {
             fatalError("Unable to instantiate meal2")
         }
-         
-        guard let meal3 = Meal(city: "Honolulu", timezone: "2020/06/11 07:12") else {
+        guard let meal3 = Meal(city: "Calcutta", timezone: "Asia/Calcutta") else {
+            fatalError("Unable to instantiate meal2")
+        }
+        guard let meal4 = Meal(city: "Dubai", timezone: "Asia/Dubai") else {
+            fatalError("Unable to instantiate meal2")
+        }
+        guard let meal5 = Meal(city: "Johannesburg", timezone: "Africa/Johannesburg") else {
+            fatalError("Unable to instantiate meal2")
+        }
+        guard let meal6 = Meal(city: "London", timezone: "Europe/London") else {
+            fatalError("Unable to instantiate meal2")
+        }
+        guard let meal7 = Meal(city: "New_York", timezone: "America/New_York") else {
+            fatalError("Unable to instantiate meal2")
+        }
+        guard let meal8 = Meal(city: "Chicago", timezone: "America/Chicago") else {
+            fatalError("Unable to instantiate meal2")
+        }
+        guard let meal9 = Meal(city: "Denver", timezone: "America/Denver") else {
+            fatalError("Unable to instantiate meal2")
+        }
+        guard let meal10 = Meal(city: "Los_Angeles", timezone: "America/Los_Angeles") else {
+            fatalError("Unable to instantiate meal2")
+        }
+        guard let meal11 = Meal(city: "Honolulu", timezone: "Pacific/Honolulu") else {
             fatalError("Unable to instantiate meal2")
         }
         
-        meals += [meal1, meal2, meal3]
+        meals += [meal1, meal2, meal3, meal4, meal5, meal6, meal7, meal8, meal9, meal10, meal11]
     }
     
     private func saveMeals() {

@@ -145,7 +145,7 @@ class TinyTableViewController: UITableViewController, UINavigationControllerDele
             
             let tz = TimeZone(identifier: search[0])
             
-            guard let meal = Meal(city: city, timezone: tz?.abbreviation() ?? "oops") else {
+            guard let meal = Meal(city: city, timezone: search[0]) else {
                 fatalError("Unable to instantiate meal")
             }
             tinymeals += [meal]

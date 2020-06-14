@@ -17,6 +17,50 @@ class Meal: NSObject, NSCoding  {
     var city: String
     var timezone: String
     
+    func getAbbr() -> String? {
+        return TimeZone.init(identifier: self.timezone)?.abbreviation()
+    }
+    
+    // Central Standard Time
+    func getName() -> String? {
+        let tz = TimeZone.init(identifier: self.timezone)
+        if (tz?.isDaylightSavingTime(for: Date()))! {
+            return tz?.localizedName(for: .daylightSaving, locale: .current)
+        } else {
+            return tz?.localizedName(for: .standard, locale: .current)
+        }
+    }
+    
+    // CST
+    func getShortName() -> String? {
+        let tz = TimeZone.init(identifier: self.timezone)
+        if (tz?.isDaylightSavingTime(for: Date()))! {
+            return tz?.localizedName(for: .shortDaylightSaving, locale: .current)
+        } else {
+            return tz?.localizedName(for: .shortStandard, locale: .current)
+        }
+    }
+    
+    func getCurrentTimeWithTimeZone() -> String? {
+        let currentDate = Date()
+        let format = DateFormatter()
+        format.timeZone = TimeZone.init(identifier: self.timezone)
+        format.dateFormat = "HH:mm"
+
+        let dateString = format.string(from: currentDate)
+        return dateString
+    }
+    
+    func getCurrentDateWithTimeZone() -> String? {
+        let currentDate = Date()
+        let format = DateFormatter()
+        format.timeZone = TimeZone.init(identifier: self.timezone)
+        format.dateFormat = "yyyy/MM/dd"
+
+        let dateString = format.string(from: currentDate)
+        return dateString
+    }
+    
     //MARK: Archiving Paths
      
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!

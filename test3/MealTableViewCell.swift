@@ -11,8 +11,12 @@ import UIKit
 class MealTableViewCell: UITableViewCell {
 
     //MARK: Properties
-    @IBOutlet weak var cityName: UILabel!
-    @IBOutlet weak var timezone: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var abbrLabel: UILabel!
+    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var standardNameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
