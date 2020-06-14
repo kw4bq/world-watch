@@ -45,7 +45,7 @@ class RegionSmallTableViewController: UITableViewController, UINavigationControl
         
         if small.timezone == "-------" {
             
-            let cellIdentifier = "CityNestedTableViewCell"
+            let cellIdentifier = "SmallAlternateTableViewCell"
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RegionSmallAlternateTableViewCell  else {
                 fatalError("The dequeued cell is not an instance of CityNestedTableViewCell.")
@@ -58,7 +58,7 @@ class RegionSmallTableViewController: UITableViewController, UINavigationControl
             return cell
         } else {
             
-            let cellIdentifier = "CountryStateTableViewCell"
+            let cellIdentifier = "SmallTableViewCell"
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RegionSmallTableViewCell  else {
                 fatalError("The dequeued cell is not an instance of CountryStateTableViewCell.")
@@ -127,8 +127,6 @@ class RegionSmallTableViewController: UITableViewController, UINavigationControl
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        os_log("Show Small.", log: OSLog.default, type: .debug)
-
         switch(segue.identifier ?? "") {
           
         case "UnwindSmallToMeal":

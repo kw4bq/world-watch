@@ -92,7 +92,7 @@ class RegionTimeZone: NSObject, NSCoding  {
     //MARK: Archiving Paths
      
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("meals")
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("timezones")
     
     //MARK: Types
      
@@ -124,12 +124,12 @@ class RegionTimeZone: NSObject, NSCoding  {
         
         // The name is required. If we cannot decode a name string, the initializer should fail.
         guard let city = aDecoder.decodeObject(forKey: PropertyKey.city) as? String else {
-            os_log("Unable to decode the city for a Meal object.", log: OSLog.default, type: .debug)
+            os_log("Unable to decode the city for a TZ object.", log: OSLog.default, type: .debug)
             return nil
         }
         
         guard let timezone = aDecoder.decodeObject(forKey: PropertyKey.timezone) as? String else {
-            os_log("Unable to decode the timezone for a Meal object.", log: OSLog.default, type: .debug)
+            os_log("Unable to decode the timezone for a TZ object.", log: OSLog.default, type: .debug)
             return nil
         }
         

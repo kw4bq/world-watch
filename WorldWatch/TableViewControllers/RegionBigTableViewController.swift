@@ -30,7 +30,6 @@ class RegionBigTableViewController: UITableViewController, UINavigationControlle
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         
-        os_log("Cancelling.", log: OSLog.default, type: .debug)
         // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
         let isPresentingInAddMealMode = presentingViewController is UINavigationController
         
@@ -60,10 +59,10 @@ class RegionBigTableViewController: UITableViewController, UINavigationControlle
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier.
         
-        let cellIdentifier = "TimeZoneTableViewCell"
+        let cellIdentifier = "BigTableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RegionBigTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of TimeZoneTableViewCell.")
+            fatalError("The dequeued cell is not an instance of RegionBigTableViewCell.")
         }
         
         // Fetches the appropriate meal for the data source layout.
@@ -107,9 +106,8 @@ class RegionBigTableViewController: UITableViewController, UINavigationControlle
         
         switch(segue.identifier ?? "") {
             
-        case "CountryState":
+        case "SmallSegue":
             
-            os_log("Show Small.", log: OSLog.default, type: .debug)
             guard let countryStateTableViewController = segue.destination as? RegionSmallTableViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }

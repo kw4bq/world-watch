@@ -1,5 +1,5 @@
 //
-//  MealViewController.swift
+//  WorldWatchViewController.swift
 //  test2
 //
 //  Created by emery on 6/12/20.
@@ -10,7 +10,7 @@ import UIKit
 import os.log
 
 
-class MealViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
+class WorldWatchViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
     
     //MARK: Navigation
     

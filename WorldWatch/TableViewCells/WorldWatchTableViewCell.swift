@@ -1,5 +1,5 @@
 //
-//  MealTableViewCell.swift
+//  WorldWatchTableViewCell.swift
 //  test3
 //
 //  Created by emery on 6/12/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MealTableViewCell: UITableViewCell {
+class WorldWatchTableViewCell: UITableViewCell {
 
     //MARK: Properties
     @IBOutlet weak var cityLabel: UILabel!
