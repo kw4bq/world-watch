@@ -9,15 +9,15 @@
 import UIKit
 import os.log
 
-class CountryStateTableViewController: UITableViewController, UINavigationControllerDelegate {
+class RegionSmallTableViewController: UITableViewController, UINavigationControllerDelegate {
 
     //MARK: Properties
 
     var result: [String: [String: [String]]] = [:]
     var selectedBig: String = ""
     var small = [String]()
-    var smallmeals = [Meal]()
-    var meal: Meal?
+    var smallRegions = [RegionTimeZone]()
+    var meal: RegionTimeZone?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,24 +35,24 @@ class CountryStateTableViewController: UITableViewController, UINavigationContro
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return smallmeals.count
+        return smallRegions.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier.
         
-        let countrystate = smallmeals[indexPath.row]
+        let small = smallRegions[indexPath.row]
         
-        if countrystate.timezone == "-------" {
+        if small.timezone == "-------" {
             
             let cellIdentifier = "CityNestedTableViewCell"
             
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CityNestedTableViewCell  else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RegionSmallAlternateTableViewCell  else {
                 fatalError("The dequeued cell is not an instance of CityNestedTableViewCell.")
             }
             
             // Fetches the appropriate meal for the data source layout.
-            cell.cityNestedTextLabel.text = countrystate.city
+            cell.cityNestedTextLabel.text = small.city
             cell.accessoryType = .disclosureIndicator
             
             return cell
@@ -60,13 +60,13 @@ class CountryStateTableViewController: UITableViewController, UINavigationContro
             
             let cellIdentifier = "CountryStateTableViewCell"
             
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CountryStateTableViewCell  else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RegionSmallTableViewCell  else {
                 fatalError("The dequeued cell is not an instance of CountryStateTableViewCell.")
             }
             
             // Fetches the appropriate meal for the data source layout.
-            cell.smallTextLabel.text = countrystate.city
-            cell.timeZoneIdTextLabel.text = countrystate.timezone
+            cell.smallTextLabel.text = small.city
+            cell.timeZoneIdTextLabel.text = small.timezone
             
             return cell
         }
@@ -104,17 +104,17 @@ class CountryStateTableViewController: UITableViewController, UINavigationContro
         for city in small {
             let search = zoneForName(searchString: city)
             if search.count == 1 {
-                let tz = TimeZone(identifier: search[0])
+                //let tz = TimeZone(identifier: search[0])
                 
-                guard let meal = Meal(city: city, timezone: search[0]) else {
+                guard let meal = RegionTimeZone(city: city, timezone: search[0]) else {
                     fatalError("Unable to instantiate meal")
                 }
-                smallmeals += [meal]
+                smallRegions += [meal]
             } else {
-                guard let meal = Meal(city: city, timezone: "-------") else {
+                guard let meal = RegionTimeZone(city: city, timezone: "-------") else {
                     fatalError("Unable to instantiate meal")
                 }
-                smallmeals += [meal]
+                smallRegions += [meal]
             }
         }
         
@@ -132,7 +132,7 @@ class CountryStateTableViewController: UITableViewController, UINavigationContro
         switch(segue.identifier ?? "") {
           
         case "UnwindSmallToMeal":
-            guard let selectedSmallCell = sender as? CountryStateTableViewCell else {
+            guard let selectedSmallCell = sender as? RegionSmallTableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
             
@@ -140,23 +140,23 @@ class CountryStateTableViewController: UITableViewController, UINavigationContro
                 fatalError("The selected cell is not being displayed by the table")
             }
             
-            let selectedSmall = smallmeals[indexPath.row]
+            let selectedSmall = smallRegions[indexPath.row]
             print(selectedSmall)
             
             let city = selectedSmallCell.smallTextLabel.text ?? ""
             let tzlabel = selectedSmallCell.timeZoneIdTextLabel.text ?? ""
             
-            // Set the meal to be passed to MealTableViewController after the unwind segue.
-            meal = Meal(city: city, timezone: tzlabel)
+            // Set the meal to be passed to WorldWatchTableViewController after the unwind segue.
+            meal = RegionTimeZone(city: city, timezone: tzlabel)
             
         case "TinySegue":
             
             os_log("Show Small.", log: OSLog.default, type: .debug)
-            guard let tinyTableViewController = segue.destination as? TinyTableViewController else {
+            guard let tinyTableViewController = segue.destination as? RegionTinyTableViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             
-            guard let selectedTinyCell = sender as? CityNestedTableViewCell else {
+            guard let selectedTinyCell = sender as? RegionSmallAlternateTableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
             

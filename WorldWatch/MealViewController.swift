@@ -27,8 +27,8 @@ class MealViewController: UIViewController, UITextFieldDelegate, UINavigationCon
         let name = nameTextField.text ?? ""
         let meallabeltext = mealNameLabel.text ?? ""
         
-        // Set the meal to be passed to MealTableViewController after the unwind segue.
-        meal = Meal(city: name, timezone: meallabeltext)
+        // Set the meal to be passed to WorldWatchTableViewController after the unwind segue.
+        meal = RegionTimeZone(city: name, timezone: meallabeltext)
         
     }
     
@@ -55,10 +55,10 @@ class MealViewController: UIViewController, UITextFieldDelegate, UINavigationCon
     }
     
     /*
-     This value is either passed by `MealTableViewController` in `prepare(for:sender:)`
+     This value is either passed by `WorldWatchTableViewController` in `prepare(for:sender:)`
      or constructed as part of adding a new meal.
      */
-    var meal: Meal?
+    var meal: RegionTimeZone?
     
     override func viewDidLoad() {
         super.viewDidLoad()

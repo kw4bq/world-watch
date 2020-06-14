@@ -1,5 +1,5 @@
 //
-//  MealTableViewController.swift
+//  WorldWatchTableViewController.swift
 //  test3
 //
 //  Created by emery on 6/12/20.
@@ -10,13 +10,13 @@ import UIKit
 import os.log
 
 
-class MealTableViewController: UITableViewController {
+class WorldWatchTableViewController: UITableViewController {
     
     //MARK: Properties
      
     @IBOutlet var worldWatchTableView: UITableView!
     
-    var meals = [Meal]()
+    var meals = [RegionTimeZone]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,9 +75,17 @@ class MealTableViewController: UITableViewController {
         case 0...3:
             cell.contentView.backgroundColor = UIColor(named: "000")
             cell.iconImageView.image = UIImage(named: "zzz")
+            cell.cityLabel.textColor = .white
+            cell.dateLabel.textColor = .white
+            cell.timeLabel.textColor = .white
+            cell.standardNameLabel.textColor = .white
         case 4...5:
             cell.contentView.backgroundColor = UIColor(named: "050")
             cell.iconImageView.image = UIImage(named: "rising")
+            cell.cityLabel.textColor = .white
+            cell.dateLabel.textColor = .white
+            cell.timeLabel.textColor = .white
+            cell.standardNameLabel.textColor = .white
         case 6...7:
             cell.contentView.backgroundColor = UIColor(named: "100")
             cell.iconImageView.image = UIImage(named: "coffee")
@@ -116,15 +124,31 @@ class MealTableViewController: UITableViewController {
         case 19...20:
             cell.contentView.backgroundColor = UIColor(named: "400")
             cell.iconImageView.image = UIImage(named: "rising")
+            cell.cityLabel.textColor = .white
+            cell.dateLabel.textColor = .white
+            cell.timeLabel.textColor = .white
+            cell.standardNameLabel.textColor = .white
         case 21...22:
             cell.contentView.backgroundColor = UIColor(named: "500")
             cell.iconImageView.image = UIImage(named: "moon")
+            cell.cityLabel.textColor = .white
+            cell.dateLabel.textColor = .white
+            cell.timeLabel.textColor = .white
+            cell.standardNameLabel.textColor = .white
         case 23:
             cell.contentView.backgroundColor = UIColor(named: "000")
             cell.iconImageView.image = UIImage(named: "zzz")
+            cell.cityLabel.textColor = .white
+            cell.dateLabel.textColor = .white
+            cell.timeLabel.textColor = .white
+            cell.standardNameLabel.textColor = .white
         default:
             cell.contentView.backgroundColor = .white
             cell.iconImageView.image = UIImage(named: "home")
+            cell.cityLabel.textColor = .white
+            cell.dateLabel.textColor = .white
+            cell.timeLabel.textColor = .white
+            cell.standardNameLabel.textColor = .white
         }
         
         
@@ -228,7 +252,7 @@ class MealTableViewController: UITableViewController {
             saveMeals()
         }
         
-        if let sourceViewController = sender.source as? CountryStateTableViewController, let meal = sourceViewController.meal {
+        if let sourceViewController = sender.source as? RegionSmallTableViewController, let meal = sourceViewController.meal {
 
             // Add a new meal.
             let newIndexPath = IndexPath(row: meals.count, section: 0)
@@ -240,7 +264,7 @@ class MealTableViewController: UITableViewController {
             saveMeals()
         }
         
-        if let sourceViewController = sender.source as? TinyTableViewController, let meal = sourceViewController.meal {
+        if let sourceViewController = sender.source as? RegionTinyTableViewController, let meal = sourceViewController.meal {
 
             // Add a new meal.
             let newIndexPath = IndexPath(row: meals.count, section: 0)
@@ -258,43 +282,43 @@ class MealTableViewController: UITableViewController {
      
     private func loadSampleMeals() {
 
-        guard let meal1 = Meal(city: "Sydney", timezone: "Australia/Sydney") else {
+        guard let meal1 = RegionTimeZone(city: "Sydney", timezone: "Australia/Sydney") else {
             fatalError("Unable to instantiate meal1")
         }
-        guard let meal2 = Meal(city: "Tokyo", timezone: "Asia/Tokyo") else {
+        guard let meal2 = RegionTimeZone(city: "Tokyo", timezone: "Asia/Tokyo") else {
             fatalError("Unable to instantiate meal2")
         }
-        guard let meal3 = Meal(city: "Calcutta", timezone: "Asia/Calcutta") else {
+        guard let meal3 = RegionTimeZone(city: "Calcutta", timezone: "Asia/Calcutta") else {
             fatalError("Unable to instantiate meal2")
         }
-        guard let meal4 = Meal(city: "Dubai", timezone: "Asia/Dubai") else {
+        guard let meal4 = RegionTimeZone(city: "Dubai", timezone: "Asia/Dubai") else {
             fatalError("Unable to instantiate meal2")
         }
-        guard let meal5 = Meal(city: "Johannesburg", timezone: "Africa/Johannesburg") else {
+        guard let meal5 = RegionTimeZone(city: "Johannesburg", timezone: "Africa/Johannesburg") else {
             fatalError("Unable to instantiate meal2")
         }
-        guard let meal6 = Meal(city: "Paris", timezone: "Europe/Paris") else {
+        guard let meal6 = RegionTimeZone(city: "Paris", timezone: "Europe/Paris") else {
             fatalError("Unable to instantiate meal2")
         }
-        guard let meal12 = Meal(city: "UTC", timezone: "Africa/Banjul") else {
+        guard let meal12 = RegionTimeZone(city: "UTC", timezone: "Africa/Banjul") else {
             fatalError("Unable to instantiate meal2")
         }
-        guard let meal13 = Meal(city: "Halifax", timezone: "America/Halifax") else {
+        guard let meal13 = RegionTimeZone(city: "Halifax", timezone: "America/Halifax") else {
             fatalError("Unable to instantiate meal2")
         }
-        guard let meal7 = Meal(city: "New_York", timezone: "America/New_York") else {
+        guard let meal7 = RegionTimeZone(city: "New_York", timezone: "America/New_York") else {
             fatalError("Unable to instantiate meal2")
         }
-        guard let meal8 = Meal(city: "Chicago", timezone: "America/Chicago") else {
+        guard let meal8 = RegionTimeZone(city: "Chicago", timezone: "America/Chicago") else {
             fatalError("Unable to instantiate meal2")
         }
-        guard let meal9 = Meal(city: "Denver", timezone: "America/Denver") else {
+        guard let meal9 = RegionTimeZone(city: "Denver", timezone: "America/Denver") else {
             fatalError("Unable to instantiate meal2")
         }
-        guard let meal10 = Meal(city: "Los_Angeles", timezone: "America/Los_Angeles") else {
+        guard let meal10 = RegionTimeZone(city: "Los_Angeles", timezone: "America/Los_Angeles") else {
             fatalError("Unable to instantiate meal2")
         }
-        guard let meal11 = Meal(city: "Honolulu", timezone: "Pacific/Honolulu") else {
+        guard let meal11 = RegionTimeZone(city: "Honolulu", timezone: "Pacific/Honolulu") else {
             fatalError("Unable to instantiate meal2")
         }
         
@@ -303,7 +327,7 @@ class MealTableViewController: UITableViewController {
     
     private func saveMeals() {
         
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(meals, toFile: Meal.ArchiveURL.path)
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(meals, toFile: RegionTimeZone.ArchiveURL.path)
         
         if isSuccessfulSave {
             os_log("Meals successfully saved.", log: OSLog.default, type: .debug)
@@ -312,8 +336,8 @@ class MealTableViewController: UITableViewController {
         }
     }
     
-    private func loadMeals() -> [Meal]? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Meal.ArchiveURL.path) as? [Meal]
+    private func loadMeals() -> [RegionTimeZone]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: RegionTimeZone.ArchiveURL.path) as? [RegionTimeZone]
     }
     
     

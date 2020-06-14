@@ -27,14 +27,14 @@ extension Dictionary {
     }
 }
 
-class TinyTableViewController: UITableViewController, UINavigationControllerDelegate {
+class RegionTinyTableViewController: UITableViewController, UINavigationControllerDelegate {
 
     
     var result: [String: [String: [String]]] = [:]
     var selectedSmall: String = ""
     var tiny = [String]()
-    var tinymeals = [Meal]()
-    var meal: Meal?
+    var tinymeals = [RegionTimeZone]()
+    var meal: RegionTimeZone?
     
     
     override func viewDidLoad() {
@@ -58,7 +58,7 @@ class TinyTableViewController: UITableViewController, UINavigationControllerDele
 
         let cellIdentifier = "TinyTableViewCell"
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TinyTableViewCell  else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RegionTinyTableViewCell  else {
             fatalError("The dequeued cell is not an instance of TinyTableViewCell.")
         }
         
@@ -84,7 +84,7 @@ class TinyTableViewController: UITableViewController, UINavigationControllerDele
         switch(segue.identifier ?? "") {
           
         case "UnwindTinyToMeal":
-            guard let selectedTinyCell = sender as? TinyTableViewCell else {
+            guard let selectedTinyCell = sender as? RegionTinyTableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
             
@@ -98,8 +98,8 @@ class TinyTableViewController: UITableViewController, UINavigationControllerDele
             let city = selectedTinyCell.tinyLabel.text ?? ""
             let tzlabel = selectedTinyCell.tinyTzIdLabel.text ?? ""
             
-            // Set the meal to be passed to MealTableViewController after the unwind segue.
-            meal = Meal(city: city, timezone: tzlabel)
+            // Set the meal to be passed to WorldWatchTableViewController after the unwind segue.
+            meal = RegionTimeZone(city: city, timezone: tzlabel)
             
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
@@ -143,9 +143,9 @@ class TinyTableViewController: UITableViewController, UINavigationControllerDele
         for city in tiny {
             let search = zoneForName(searchString: city)
             
-            let tz = TimeZone(identifier: search[0])
+            //let tz = TimeZone(identifier: search[0])
             
-            guard let meal = Meal(city: city, timezone: search[0]) else {
+            guard let meal = RegionTimeZone(city: city, timezone: search[0]) else {
                 fatalError("Unable to instantiate meal")
             }
             tinymeals += [meal]

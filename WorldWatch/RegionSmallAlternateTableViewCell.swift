@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CityNestedTableViewCell: UITableViewCell {
+class RegionSmallAlternateTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cityNestedTextLabel: UILabel!
     

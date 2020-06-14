@@ -1,5 +1,5 @@
 //
-//  TimeZoneTableViewCell.swift
+//  TinyTableViewCell.swift
 //  test3
 //
 //  Created by emery on 6/13/20.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class TimeZoneTableViewCell: UITableViewCell {
+class RegionTinyTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var timezoneTextLabel: UILabel!
-    @IBOutlet weak var timezoneIdLabel: UILabel!
+    @IBOutlet weak var tinyLabel: UILabel!
+    @IBOutlet weak var tinyTzIdLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

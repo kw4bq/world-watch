@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class TimeZonesTableViewController: UITableViewController, UINavigationControllerDelegate {
+class RegionBigTableViewController: UITableViewController, UINavigationControllerDelegate {
 
     //MARK: Properties
     
@@ -62,7 +62,7 @@ class TimeZonesTableViewController: UITableViewController, UINavigationControlle
         
         let cellIdentifier = "TimeZoneTableViewCell"
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TimeZoneTableViewCell  else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RegionBigTableViewCell  else {
             fatalError("The dequeued cell is not an instance of TimeZoneTableViewCell.")
         }
         
@@ -110,11 +110,11 @@ class TimeZonesTableViewController: UITableViewController, UINavigationControlle
         case "CountryState":
             
             os_log("Show Small.", log: OSLog.default, type: .debug)
-            guard let countryStateTableViewController = segue.destination as? CountryStateTableViewController else {
+            guard let countryStateTableViewController = segue.destination as? RegionSmallTableViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             
-            guard let selectedBigCell = sender as? TimeZoneTableViewCell else {
+            guard let selectedBigCell = sender as? RegionBigTableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
             

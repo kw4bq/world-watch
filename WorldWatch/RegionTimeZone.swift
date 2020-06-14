@@ -1,5 +1,5 @@
 //
-//  Meal.swift
+//  RegionTimeZone.swift
 //  test3
 //
 //  Created by emery on 6/12/20.
@@ -10,7 +10,7 @@ import UIKit
 import os.log
 
 
-class Meal: NSObject, NSCoding  {
+class RegionTimeZone: NSObject, NSCoding  {
        
     //MARK: Properties
     
