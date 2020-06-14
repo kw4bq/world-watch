@@ -10,6 +10,9 @@
 		9C569A4A249537E100A27C1E /* TimeZoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C569A49249537E100A27C1E /* TimeZoneTableViewCell.swift */; };
 		9C569A4C24954C3000A27C1E /* CountryStateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C569A4B24954C3000A27C1E /* CountryStateTableViewController.swift */; };
 		9C569A4E24954E0A00A27C1E /* CountryStateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C569A4D24954E0A00A27C1E /* CountryStateTableViewCell.swift */; };
+		9C569A50249591C300A27C1E /* CityNestedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C569A4F249591C300A27C1E /* CityNestedTableViewCell.swift */; };
+		9C569A5224959B2C00A27C1E /* TinyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C569A5124959B2C00A27C1E /* TinyTableViewCell.swift */; };
+		9C569A5424959B4500A27C1E /* TinyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C569A5324959B4500A27C1E /* TinyTableViewController.swift */; };
 		9CF134DF2494485600B2786D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF134DE2494485600B2786D /* AppDelegate.swift */; };
 		9CF134E12494485600B2786D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF134E02494485600B2786D /* SceneDelegate.swift */; };
 		9CF134E32494485600B2786D /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF134E22494485600B2786D /* MealViewController.swift */; };
@@ -26,6 +29,9 @@
 		9C569A49249537E100A27C1E /* TimeZoneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneTableViewCell.swift; sourceTree = "<group>"; };
 		9C569A4B24954C3000A27C1E /* CountryStateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryStateTableViewController.swift; sourceTree = "<group>"; };
 		9C569A4D24954E0A00A27C1E /* CountryStateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryStateTableViewCell.swift; sourceTree = "<group>"; };
+		9C569A4F249591C300A27C1E /* CityNestedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityNestedTableViewCell.swift; sourceTree = "<group>"; };
+		9C569A5124959B2C00A27C1E /* TinyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinyTableViewCell.swift; sourceTree = "<group>"; };
+		9C569A5324959B4500A27C1E /* TinyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinyTableViewController.swift; sourceTree = "<group>"; };
 		9CF134DB2494485600B2786D /* test3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF134DE2494485600B2786D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CF134E02494485600B2786D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +86,9 @@
 				9C569A49249537E100A27C1E /* TimeZoneTableViewCell.swift */,
 				9C569A4B24954C3000A27C1E /* CountryStateTableViewController.swift */,
 				9C569A4D24954E0A00A27C1E /* CountryStateTableViewCell.swift */,
+				9C569A4F249591C300A27C1E /* CityNestedTableViewCell.swift */,
+				9C569A5324959B4500A27C1E /* TinyTableViewController.swift */,
+				9C569A5124959B2C00A27C1E /* TinyTableViewCell.swift */,
 				9CF134E42494485600B2786D /* Main.storyboard */,
 				9CF134E72494485700B2786D /* Assets.xcassets */,
 				9CF134E92494485700B2786D /* LaunchScreen.storyboard */,
@@ -159,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C569A50249591C300A27C1E /* CityNestedTableViewCell.swift in Sources */,
 				9CF134F524944F4500B2786D /* MealTableViewController.swift in Sources */,
 				9C569A4C24954C3000A27C1E /* CountryStateTableViewController.swift in Sources */,
 				9CF134F324944A1900B2786D /* MealTableViewCell.swift in Sources */,
@@ -166,7 +176,9 @@
 				9CF134E32494485600B2786D /* MealViewController.swift in Sources */,
 				9C569A4A249537E100A27C1E /* TimeZoneTableViewCell.swift in Sources */,
 				9C569A4E24954E0A00A27C1E /* CountryStateTableViewCell.swift in Sources */,
+				9C569A5424959B4500A27C1E /* TinyTableViewController.swift in Sources */,
 				9CF134DF2494485600B2786D /* AppDelegate.swift in Sources */,
+				9C569A5224959B2C00A27C1E /* TinyTableViewCell.swift in Sources */,
 				9CF134F72494693600B2786D /* Meal.swift in Sources */,
 				9CF134E12494485600B2786D /* SceneDelegate.swift in Sources */,
 			);

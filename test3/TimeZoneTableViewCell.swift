@@ -11,6 +11,7 @@ import UIKit
 class TimeZoneTableViewCell: UITableViewCell {
 
     @IBOutlet weak var timezoneTextLabel: UILabel!
+    @IBOutlet weak var timezoneIdLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

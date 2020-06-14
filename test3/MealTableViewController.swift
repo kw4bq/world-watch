@@ -158,6 +158,18 @@ class MealTableViewController: UITableViewController {
             // Save the meals.
             saveMeals()
         }
+        
+        if let sourceViewController = sender.source as? CountryStateTableViewController, let meal = sourceViewController.meal {
+
+            // Add a new meal.
+            let newIndexPath = IndexPath(row: meals.count, section: 0)
+            
+            meals.append(meal)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            
+            // Save the meals.
+            saveMeals()
+        }
     }
     
 

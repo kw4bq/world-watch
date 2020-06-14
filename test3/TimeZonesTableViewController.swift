@@ -71,6 +71,7 @@ class TimeZonesTableViewController: UITableViewController, UINavigationControlle
         let region = big[indexPath.row]
         
         cell.timezoneTextLabel.text = region
+        cell.accessoryType = .disclosureIndicator
         
         return cell
     }
@@ -93,7 +94,7 @@ class TimeZonesTableViewController: UITableViewController, UINavigationControlle
             }
         }
         
-        big.append(contentsOf: result.keys)
+        big.append(contentsOf: result.keys.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending })
     }
     
     
