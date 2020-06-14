@@ -7,20 +7,40 @@
 //
 
 import UIKit
+import os.log
+
+extension Dictionary {
+    func search(key:String, in dict:[String:Any] = [:]) -> Any? {
+        guard var currDict = self as? [String : Any]  else { return nil }
+        currDict = !dict.isEmpty ? dict : currDict
+
+        if let foundValue = currDict[key] {
+            return foundValue
+        } else {
+            for val in currDict.values {
+                if let innerDict = val as? [String:Any], let result = search(key: key, in: innerDict) {
+                    return result
+                }
+            }
+            return nil
+        }
+    }
+}
 
 class TinyTableViewController: UITableViewController, UINavigationControllerDelegate {
 
     
     var result: [String: [String: [String]]] = [:]
-    var selectedBig: String = ""
+    var selectedSmall: String = ""
     var tiny = [String]()
-    var smallmeals = [Meal]()
+    var tinymeals = [Meal]()
     var meal: Meal?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        loadTimeZoneData(small: selectedSmall)
     }
 
     // MARK: - Table view data source
@@ -30,26 +50,62 @@ class TinyTableViewController: UITableViewController, UINavigationControllerDele
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return tinymeals.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        // Table view cells are reused and should be dequeued using a cell identifier.
 
-        // Configure the cell...
+        let cellIdentifier = "TinyTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TinyTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of TinyTableViewCell.")
+        }
+        
+        let tinystate = tinymeals[indexPath.row]
 
+        // Fetches the appropriate meal for the data source layout.
+        cell.tinyLabel.text = tinystate.city
+        cell.tinyTzIdLabel.text = tinystate.timezone
+        
         return cell
+            
     }
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        
+        os_log("Show Small.", log: OSLog.default, type: .debug)
+
+        switch(segue.identifier ?? "") {
+          
+        case "UnwindTinyToMeal":
+            guard let selectedTinyCell = sender as? TinyTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedTinyCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedTiny = tinymeals[indexPath.row]
+            print(selectedTiny)
+            
+            let city = selectedTinyCell.tinyLabel.text ?? ""
+            let tzlabel = selectedTinyCell.tinyTzIdLabel.text ?? ""
+            
+            // Set the meal to be passed to MealTableViewController after the unwind segue.
+            meal = Meal(city: city, timezone: tzlabel)
+            
+        default:
+            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
+        }
     }
-    */
+
     
     
     //MARK: Private Methods
@@ -61,18 +117,7 @@ class TinyTableViewController: UITableViewController, UINavigationControllerDele
             return stringMatch != nil ? true : false
         })
     }
-    
-    private func search(key:String, in dict:[String:Any], completion:((Any) -> ())) {
-        if let foundValue = dict[key] {
-            completion(foundValue)
-        } else {
-            dict.values.enumerated().forEach {
-                if let innerDict = $0.element as? [String:Any] {
-                    search(key: key, in: innerDict, completion: completion)
-                }
-            }
-        }
-    }
+
     
     private func loadTimeZoneData(small: String) {
 
@@ -90,9 +135,9 @@ class TinyTableViewController: UITableViewController, UINavigationControllerDele
             }
         }
         
-        var tinies: () = search(key: small, in: result, completion: { print($0) })
-        
-        tiny.append(tinies)
+        let tinies: [String] = result.search(key: small) as! [String]
+        print("tinies", tinies)
+        tiny.append(contentsOf: tinies)
         //tiny.append(contentsOf: result[small]!.keys.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending })
         
         for city in tiny {
@@ -103,7 +148,7 @@ class TinyTableViewController: UITableViewController, UINavigationControllerDele
             guard let meal = Meal(city: city, timezone: tz?.abbreviation() ?? "oops") else {
                 fatalError("Unable to instantiate meal")
             }
-            smallmeals += [meal]
+            tinymeals += [meal]
         }
         
     }

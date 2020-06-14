@@ -72,11 +72,6 @@ class CountryStateTableViewController: UITableViewController, UINavigationContro
         }
         
     }
-
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
     
     //MARK: Private Methods
     
@@ -134,23 +129,49 @@ class CountryStateTableViewController: UITableViewController, UINavigationContro
         
         os_log("Show Small.", log: OSLog.default, type: .debug)
 
-        guard let selectedSmallCell = sender as? CountryStateTableViewCell else {
-            fatalError("Unexpected sender: \(String(describing: sender))")
+        switch(segue.identifier ?? "") {
+          
+        case "UnwindSmallToMeal":
+            guard let selectedSmallCell = sender as? CountryStateTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedSmallCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedSmall = smallmeals[indexPath.row]
+            print(selectedSmall)
+            //countryStateTableViewController.selectedBig = selectedBig
+            
+            let city = selectedSmallCell.smallTextLabel.text ?? ""
+            let tzlabel = selectedSmallCell.timeZoneIdTextLabel.text ?? ""
+            
+            // Set the meal to be passed to MealTableViewController after the unwind segue.
+            meal = Meal(city: city, timezone: tzlabel)
+            
+        case "TinySegue":
+            
+            os_log("Show Small.", log: OSLog.default, type: .debug)
+            guard let tinyTableViewController = segue.destination as? TinyTableViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedTinyCell = sender as? CityNestedTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedTinyCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedSmall = small[indexPath.row]
+            print(selectedSmall)
+            tinyTableViewController.selectedSmall = selectedSmall
+            
+        default:
+            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
-        
-        guard let indexPath = tableView.indexPath(for: selectedSmallCell) else {
-            fatalError("The selected cell is not being displayed by the table")
-        }
-        
-        let selectedSmall = smallmeals[indexPath.row]
-        print(selectedSmall)
-        //countryStateTableViewController.selectedBig = selectedBig
-        
-        let city = selectedSmallCell.smallTextLabel.text ?? ""
-        let tzlabel = selectedSmallCell.timeZoneIdTextLabel.text ?? ""
-        
-        // Set the meal to be passed to MealTableViewController after the unwind segue.
-        meal = Meal(city: city, timezone: tzlabel)
         
     }
     

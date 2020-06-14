@@ -11,6 +11,7 @@ import UIKit
 class TinyTableViewCell: UITableViewCell {
 
     @IBOutlet weak var tinyLabel: UILabel!
+    @IBOutlet weak var tinyTzIdLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

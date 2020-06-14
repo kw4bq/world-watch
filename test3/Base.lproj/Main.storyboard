@@ -245,7 +245,7 @@
                                 <connections>
                                     <outlet property="smallTextLabel" destination="3Be-FW-6Vo" id="Sjf-lx-DAv"/>
                                     <outlet property="timeZoneIdTextLabel" destination="9bM-uQ-Uoo" id="zgX-de-r18"/>
-                                    <segue destination="7Km-gq-NWh" kind="unwind" unwindAction="unwindToMealListWithSender:" id="exe-6F-LJf"/>
+                                    <segue destination="7Km-gq-NWh" kind="unwind" identifier="UnwindSmallToMeal" unwindAction="unwindToMealListWithSender:" id="exe-6F-LJf"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityNestedTableViewCell" rowHeight="90" id="VJK-o3-iss" customClass="CityNestedTableViewCell" customModule="test3" customModuleProvider="target">
@@ -308,15 +308,25 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cae-MK-Q6d">
+                                            <rect key="frame" x="346" y="33" width="48" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="Cae-MK-Q6d" firstAttribute="trailing" secondItem="9Eh-w0-cec" secondAttribute="trailingMargin" id="BPt-0w-A5t"/>
                                         <constraint firstItem="o5o-OE-rIS" firstAttribute="leading" secondItem="9Eh-w0-cec" secondAttribute="leadingMargin" id="PCi-cw-yzx"/>
+                                        <constraint firstItem="Cae-MK-Q6d" firstAttribute="centerY" secondItem="o5o-OE-rIS" secondAttribute="centerY" id="eBc-JE-C33"/>
                                         <constraint firstItem="o5o-OE-rIS" firstAttribute="centerY" secondItem="9Eh-w0-cec" secondAttribute="centerY" id="fbJ-eV-yyB"/>
                                         <constraint firstItem="o5o-OE-rIS" firstAttribute="top" secondItem="9Eh-w0-cec" secondAttribute="topMargin" constant="21" id="hRz-JO-3po"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="tinyLabel" destination="o5o-OE-rIS" id="PAk-JQ-B26"/>
+                                    <outlet property="tinyTzIdLabel" destination="Cae-MK-Q6d" id="o5J-f8-kjK"/>
+                                    <segue destination="hwF-bB-OlY" kind="unwind" identifier="UnwindTinyToMeal" unwindAction="unwindToMealListWithSender:" id="vjh-h9-Tm8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -328,6 +338,7 @@
                     <navigationItem key="navigationItem" id="Kvh-KI-ad9"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pIG-bg-PmF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="hwF-bB-OlY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3748" y="133"/>
         </scene>
