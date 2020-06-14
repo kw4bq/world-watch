@@ -16,8 +16,8 @@ class RegionSmallTableViewController: UITableViewController, UINavigationControl
     var result: [String: [String: [String]]] = [:]
     var selectedBig: String = ""
     var small = [String]()
-    var smallRegions = [RegionTimeZone]()
-    var meal: RegionTimeZone?
+    var smallRegions = [TZIdLocation]()
+    var meal: TZIdLocation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,12 +106,12 @@ class RegionSmallTableViewController: UITableViewController, UINavigationControl
             if search.count == 1 {
                 //let tz = TimeZone(identifier: search[0])
                 
-                guard let meal = RegionTimeZone(city: city, timezone: search[0]) else {
+                guard let meal = TZIdLocation(city: city, timezone: search[0]) else {
                     fatalError("Unable to instantiate meal")
                 }
                 smallRegions += [meal]
             } else {
-                guard let meal = RegionTimeZone(city: city, timezone: "-------") else {
+                guard let meal = TZIdLocation(city: city, timezone: "-------") else {
                     fatalError("Unable to instantiate meal")
                 }
                 smallRegions += [meal]
@@ -145,7 +145,7 @@ class RegionSmallTableViewController: UITableViewController, UINavigationControl
             let tzlabel = selectedSmallCell.timeZoneIdTextLabel.text ?? ""
             
             // Set the meal to be passed to WorldWatchTableViewController after the unwind segue.
-            meal = RegionTimeZone(city: city, timezone: tzlabel)
+            meal = TZIdLocation(city: city, timezone: tzlabel)
             
         case "TinySegue":
             

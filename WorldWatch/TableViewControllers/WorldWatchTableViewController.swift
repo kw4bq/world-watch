@@ -16,7 +16,7 @@ class WorldWatchTableViewController: UITableViewController {
      
     @IBOutlet var worldWatchTableView: UITableView!
     
-    var locations = [RegionTimeZone]()
+    var locations = [TZIdLocation]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -154,14 +154,12 @@ class WorldWatchTableViewController: UITableViewController {
         return cell
     }
     
-
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
 
-    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
@@ -174,22 +172,6 @@ class WorldWatchTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-
-    
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     // MARK: - Navigation
 
@@ -274,55 +256,59 @@ class WorldWatchTableViewController: UITableViewController {
      
     private func loadSampleLocations() {
 
-        guard let Sydney = RegionTimeZone(city: "Sydney", timezone: "Australia/Sydney") else {
+        guard let Sydney = TZIdLocation(city: "Sydney", timezone: "Australia/Sydney") else {
             fatalError("Unable to instantiate Sydney")
         }
-        guard let Tokyo = RegionTimeZone(city: "Tokyo", timezone: "Asia/Tokyo") else {
+        guard let Tokyo = TZIdLocation(city: "Tokyo", timezone: "Asia/Tokyo") else {
             fatalError("Unable to instantiate Tokyo")
         }
-        guard let Jakarta = RegionTimeZone(city: "Jakarta", timezone: "Asia/Jakarta") else {
+        guard let Jakarta = TZIdLocation(city: "Jakarta", timezone: "Asia/Jakarta") else {
             fatalError("Unable to instantiate Jakarta")
         }
-        guard let Calcutta = RegionTimeZone(city: "Calcutta", timezone: "Asia/Calcutta") else {
+        guard let Calcutta = TZIdLocation(city: "Calcutta", timezone: "Asia/Calcutta") else {
             fatalError("Unable to instantiate Calcutta")
         }
-        guard let Dubai = RegionTimeZone(city: "Dubai", timezone: "Asia/Dubai") else {
+        guard let Dubai = TZIdLocation(city: "Dubai", timezone: "Asia/Dubai") else {
             fatalError("Unable to instantiate Dubai")
         }
-        guard let Johannesburg = RegionTimeZone(city: "Johannesburg", timezone: "Africa/Johannesburg") else {
+        guard let Johannesburg = TZIdLocation(city: "Johannesburg", timezone: "Africa/Johannesburg") else {
             fatalError("Unable to instantiate Johannesburg")
         }
-        guard let Paris = RegionTimeZone(city: "Paris", timezone: "Europe/Paris") else {
+        guard let Paris = TZIdLocation(city: "Paris", timezone: "Europe/Paris") else {
             fatalError("Unable to instantiate Paris")
         }
-        guard let UTC = RegionTimeZone(city: "UTC", timezone: "Africa/Banjul") else {
+        guard let UTC = TZIdLocation(city: "UTC", timezone: "Africa/Banjul") else {
             fatalError("Unable to instantiate UTC")
         }
-        guard let Halifax = RegionTimeZone(city: "Halifax", timezone: "America/Halifax") else {
+        guard let Halifax = TZIdLocation(city: "Halifax", timezone: "America/Halifax") else {
             fatalError("Unable to instantiate Halifax")
         }
-        guard let New_York = RegionTimeZone(city: "New_York", timezone: "America/New_York") else {
+        guard let New_York = TZIdLocation(city: "New_York", timezone: "America/New_York") else {
             fatalError("Unable to instantiate New_York")
         }
-        guard let Chicago = RegionTimeZone(city: "Chicago", timezone: "America/Chicago") else {
+        guard let Chicago = TZIdLocation(city: "Chicago", timezone: "America/Chicago") else {
             fatalError("Unable to instantiate Chicago")
         }
-        guard let Denver = RegionTimeZone(city: "Denver", timezone: "America/Denver") else {
+        guard let Denver = TZIdLocation(city: "Denver", timezone: "America/Denver") else {
             fatalError("Unable to instantiate Denver")
         }
-        guard let Los_Angeles = RegionTimeZone(city: "Los_Angeles", timezone: "America/Los_Angeles") else {
+        guard let Los_Angeles = TZIdLocation(city: "Los_Angeles", timezone: "America/Los_Angeles") else {
             fatalError("Unable to instantiate Los_Angeles")
         }
-        guard let Honolulu = RegionTimeZone(city: "Honolulu", timezone: "Pacific/Honolulu") else {
+        guard let Honolulu = TZIdLocation(city: "Honolulu", timezone: "Pacific/Honolulu") else {
             fatalError("Unable to instantiate Honolulu")
         }
         
         locations += [Sydney, Tokyo, Jakarta, Calcutta, Dubai, Johannesburg, Paris, UTC, Halifax, New_York, Chicago, Denver, Los_Angeles, Honolulu]
     }
     
+    private func sortLocations() {
+        //locations = locations.sorted
+    }
+    
     private func saveLocations() {
         
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(locations, toFile: RegionTimeZone.ArchiveURL.path)
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(locations, toFile: TZIdLocation.ArchiveURL.path)
         /*
         if isSuccessfulSave {
             os_log("Location successfully saved.", log: OSLog.default, type: .debug)
@@ -332,8 +318,8 @@ class WorldWatchTableViewController: UITableViewController {
         */
     }
     
-    private func loadLocations() -> [RegionTimeZone]? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: RegionTimeZone.ArchiveURL.path) as? [RegionTimeZone]
+    private func loadLocations() -> [TZIdLocation]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: TZIdLocation.ArchiveURL.path) as? [TZIdLocation]
     }
     
     

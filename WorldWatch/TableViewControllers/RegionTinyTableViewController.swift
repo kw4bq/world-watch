@@ -33,8 +33,8 @@ class RegionTinyTableViewController: UITableViewController, UINavigationControll
     var result: [String: [String: [String]]] = [:]
     var selectedSmall: String = ""
     var tiny = [String]()
-    var tinymeals = [RegionTimeZone]()
-    var meal: RegionTimeZone?
+    var tinymeals = [TZIdLocation]()
+    var meal: TZIdLocation?
     
     
     override func viewDidLoad() {
@@ -99,7 +99,7 @@ class RegionTinyTableViewController: UITableViewController, UINavigationControll
             let tzlabel = selectedTinyCell.tinyTzIdLabel.text ?? ""
             
             // Set the meal to be passed to WorldWatchTableViewController after the unwind segue.
-            meal = RegionTimeZone(city: city, timezone: tzlabel)
+            meal = TZIdLocation(city: city, timezone: tzlabel)
             
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
@@ -145,7 +145,7 @@ class RegionTinyTableViewController: UITableViewController, UINavigationControll
             
             //let tz = TimeZone(identifier: search[0])
             
-            guard let meal = RegionTimeZone(city: city, timezone: search[0]) else {
+            guard let meal = TZIdLocation(city: city, timezone: search[0]) else {
                 fatalError("Unable to instantiate meal")
             }
             tinymeals += [meal]

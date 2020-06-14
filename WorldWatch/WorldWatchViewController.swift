@@ -28,7 +28,7 @@ class WorldWatchViewController: UIViewController, UITextFieldDelegate, UINavigat
         let meallabeltext = mealNameLabel.text ?? ""
         
         // Set the meal to be passed to WorldWatchTableViewController after the unwind segue.
-        meal = RegionTimeZone(city: name, timezone: meallabeltext)
+        meal = TZIdLocation(city: name, timezone: meallabeltext)
         
     }
     
@@ -58,7 +58,7 @@ class WorldWatchViewController: UIViewController, UITextFieldDelegate, UINavigat
      This value is either passed by `WorldWatchTableViewController` in `prepare(for:sender:)`
      or constructed as part of adding a new meal.
      */
-    var meal: RegionTimeZone?
+    var meal: TZIdLocation?
     
     override func viewDidLoad() {
         super.viewDidLoad()

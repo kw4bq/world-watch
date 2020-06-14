@@ -21,7 +21,7 @@
 		9CF134EB2494485700B2786D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CF134E92494485700B2786D /* LaunchScreen.storyboard */; };
 		9CF134F324944A1900B2786D /* WorldWatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF134F224944A1900B2786D /* WorldWatchTableViewCell.swift */; };
 		9CF134F524944F4500B2786D /* WorldWatchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF134F424944F4500B2786D /* WorldWatchTableViewController.swift */; };
-		9CF134F72494693600B2786D /* RegionTimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF134F62494693600B2786D /* RegionTimeZone.swift */; };
+		9CF134F72494693600B2786D /* TZIdLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF134F62494693600B2786D /* TZIdLocation.swift */; };
 		9CF134F92494A04100B2786D /* RegionBigTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF134F82494A04100B2786D /* RegionBigTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +42,7 @@
 		9CF134EC2494485700B2786D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CF134F224944A1900B2786D /* WorldWatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldWatchTableViewCell.swift; sourceTree = "<group>"; };
 		9CF134F424944F4500B2786D /* WorldWatchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldWatchTableViewController.swift; sourceTree = "<group>"; };
-		9CF134F62494693600B2786D /* RegionTimeZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionTimeZone.swift; sourceTree = "<group>"; };
+		9CF134F62494693600B2786D /* TZIdLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TZIdLocation.swift; sourceTree = "<group>"; };
 		9CF134F82494A04100B2786D /* RegionBigTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionBigTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,7 +101,7 @@
 			children = (
 				9CF134DE2494485600B2786D /* AppDelegate.swift */,
 				9CF134E02494485600B2786D /* SceneDelegate.swift */,
-				9CF134F62494693600B2786D /* RegionTimeZone.swift */,
+				9CF134F62494693600B2786D /* TZIdLocation.swift */,
 				9CF134E22494485600B2786D /* WorldWatchViewController.swift */,
 				9C6EEF4524969B3D00B7AD99 /* TableViewControllers */,
 				9C6EEF4424969B2900B7AD99 /* TableViewCells */,
@@ -195,7 +195,7 @@
 				9C569A5424959B4500A27C1E /* RegionTinyTableViewController.swift in Sources */,
 				9CF134DF2494485600B2786D /* AppDelegate.swift in Sources */,
 				9C569A5224959B2C00A27C1E /* RegionTinyTableViewCell.swift in Sources */,
-				9CF134F72494693600B2786D /* RegionTimeZone.swift in Sources */,
+				9CF134F72494693600B2786D /* TZIdLocation.swift in Sources */,
 				9CF134E12494485600B2786D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
