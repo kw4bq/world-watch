@@ -20,15 +20,14 @@ class WorldWatchViewController: UIViewController, UITextFieldDelegate, UINavigat
         
         // Configure the destination view controller only when the save button is pressed.
         guard let button = sender as? UIBarButtonItem, button === saveButton else {
-            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
             return
         }
         
         let name = nameTextField.text ?? ""
-        let meallabeltext = mealNameLabel.text ?? ""
+        let locationlabeltext = mealNameLabel.text ?? ""
         
-        // Set the meal to be passed to WorldWatchTableViewController after the unwind segue.
-        meal = TZIdLocation(city: name, timezone: meallabeltext)
+        // Set the location to be passed to WorldWatchTableViewController after the unwind segue.
+        location = TZIdLocation(city: name, timezone: locationlabeltext)
         
     }
     
@@ -39,7 +38,6 @@ class WorldWatchViewController: UIViewController, UITextFieldDelegate, UINavigat
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         
-        os_log("Cancelling.", log: OSLog.default, type: .debug)
         // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
         let isPresentingInAddMealMode = presentingViewController is UINavigationController
         
@@ -56,23 +54,23 @@ class WorldWatchViewController: UIViewController, UITextFieldDelegate, UINavigat
     
     /*
      This value is either passed by `WorldWatchTableViewController` in `prepare(for:sender:)`
-     or constructed as part of adding a new meal.
+     or constructed as part of adding a new location.
      */
-    var meal: TZIdLocation?
+    var location: TZIdLocation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Handle the text field’s user input through delegate callbacks.
         nameTextField.delegate = self
         
-        // Set up views if editing an existing Meal.
-        if let meal = meal {
-            navigationItem.title = meal.city
-            nameTextField.text   = meal.city
-            mealNameLabel.text   = meal.timezone
+        // Set up views if editing an existing location.
+        if let meal = location {
+            navigationItem.title = location?.city
+            nameTextField.text   = location?.city
+            mealNameLabel.text   = location?.timezone
         }
         
-        // Enable the Save button only if the text field has a valid Meal name.
+        // Enable the Save button only if the text field has a valid location name.
         updateSaveButtonState()
     }
     

@@ -17,7 +17,7 @@ class TZIdLocation: NSObject, NSCoding  {
     var city: String
     var timezone: String
     
-    func getGMTOffset() -> Float? {
+    func getGMTOffsetFloat() -> Float? {
         return Float((TimeZone.init(identifier: self.timezone)?.secondsFromGMT(for: Date()))!) / Float(3600)
     }
     

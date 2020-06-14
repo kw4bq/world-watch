@@ -16,7 +16,7 @@ class WorldWatchTableViewController: UITableViewController {
      
     @IBOutlet var worldWatchTableView: UITableView!
     
-    var locations = [TZIdLocation]()
+    var locations: [TZIdLocation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +36,7 @@ class WorldWatchTableViewController: UITableViewController {
             // Load the sample data.
             loadSampleLocations()
         }
+        sortLocations()
     }
 
     // MARK: - Table view data source
@@ -197,12 +198,10 @@ class WorldWatchTableViewController: UITableViewController {
             }
             
             let selectedLocation = locations[indexPath.row]
-            regionDetailViewController.meal = selectedLocation
+            regionDetailViewController.location = selectedLocation
             
         case "AddItem":
-            guard segue.destination is RegionBigTableViewController else {
-                fatalError("Unexpected destination: \(segue.destination)")
-            }
+            break
             
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
@@ -215,7 +214,7 @@ class WorldWatchTableViewController: UITableViewController {
     
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         
-        if let sourceViewController = sender.source as? WorldWatchViewController, let location = sourceViewController.meal {
+        if let sourceViewController = sender.source as? WorldWatchViewController, let location = sourceViewController.location {
 
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update
@@ -231,7 +230,7 @@ class WorldWatchTableViewController: UITableViewController {
             
             saveLocations()
             
-        } else if let sourceViewController = sender.source as? RegionSmallTableViewController, let location = sourceViewController.meal {
+        } else if let sourceViewController = sender.source as? RegionSmallTableViewController, let location = sourceViewController.location {
 
             let newIndexPath = IndexPath(row: locations.count, section: 0)
             
@@ -240,7 +239,7 @@ class WorldWatchTableViewController: UITableViewController {
             
             saveLocations()
             
-        } else if let sourceViewController = sender.source as? RegionTinyTableViewController, let location = sourceViewController.meal {
+        } else if let sourceViewController = sender.source as? RegionTinyTableViewController, let location = sourceViewController.location {
 
             let newIndexPath = IndexPath(row: locations.count, section: 0)
             
@@ -303,19 +302,25 @@ class WorldWatchTableViewController: UITableViewController {
     }
     
     private func sortLocations() {
-        //locations = locations.sorted
+        locations = locations.sorted(by: { (one, two) -> Bool in
+            if let t1 = one.getGMTOffsetFloat(), let t2 = two.getGMTOffsetFloat() {
+                return t1 > t2
+            } else {
+                return true
+            }
+        })
     }
     
     private func saveLocations() {
         
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(locations, toFile: TZIdLocation.ArchiveURL.path)
-        /*
+        
         if isSuccessfulSave {
             os_log("Location successfully saved.", log: OSLog.default, type: .debug)
         } else {
             os_log("Failed to save locations...", log: OSLog.default, type: .error)
         }
-        */
+        sortLocations()
     }
     
     private func loadLocations() -> [TZIdLocation]? {

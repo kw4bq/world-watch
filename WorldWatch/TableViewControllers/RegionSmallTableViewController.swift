@@ -17,7 +17,7 @@ class RegionSmallTableViewController: UITableViewController, UINavigationControl
     var selectedBig: String = ""
     var small = [String]()
     var smallRegions = [TZIdLocation]()
-    var meal: TZIdLocation?
+    var location: TZIdLocation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +51,7 @@ class RegionSmallTableViewController: UITableViewController, UINavigationControl
                 fatalError("The dequeued cell is not an instance of CityNestedTableViewCell.")
             }
             
-            // Fetches the appropriate meal for the data source layout.
+            // Fetches the appropriate location for the data source layout.
             cell.cityNestedTextLabel.text = small.city
             cell.accessoryType = .disclosureIndicator
             
@@ -64,9 +64,9 @@ class RegionSmallTableViewController: UITableViewController, UINavigationControl
                 fatalError("The dequeued cell is not an instance of CountryStateTableViewCell.")
             }
             
-            // Fetches the appropriate meal for the data source layout.
+            // Fetches the appropriate location for the data source layout.
             cell.smallTextLabel.text = small.city
-            cell.timeZoneIdTextLabel.text = small.timezone
+            cell.timeZoneIdTextLabel.text = small.getShortName()
             
             return cell
         }
@@ -103,18 +103,18 @@ class RegionSmallTableViewController: UITableViewController, UINavigationControl
         
         for city in small {
             let search = zoneForName(searchString: city)
+            print("Searching zone for name", city, search[0])
             if search.count == 1 {
-                //let tz = TimeZone(identifier: search[0])
-                
-                guard let meal = TZIdLocation(city: city, timezone: search[0]) else {
-                    fatalError("Unable to instantiate meal")
+                guard let location = TZIdLocation(city: city, timezone: search[0]) else {
+                    fatalError("Unable to instantiate location")
                 }
-                smallRegions += [meal]
+                smallRegions += [location]
             } else {
-                guard let meal = TZIdLocation(city: city, timezone: "-------") else {
-                    fatalError("Unable to instantiate meal")
+                print("Setting TZ to nil for", city)
+                guard let location = TZIdLocation(city: city, timezone: "-------") else {
+                    fatalError("Unable to instantiate location")
                 }
-                smallRegions += [meal]
+                smallRegions += [location]
             }
         }
         
@@ -130,6 +130,7 @@ class RegionSmallTableViewController: UITableViewController, UINavigationControl
         switch(segue.identifier ?? "") {
           
         case "UnwindSmallToMeal":
+            
             guard let selectedSmallCell = sender as? RegionSmallTableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
@@ -139,17 +140,12 @@ class RegionSmallTableViewController: UITableViewController, UINavigationControl
             }
             
             let selectedSmall = smallRegions[indexPath.row]
-            print(selectedSmall)
-            
-            let city = selectedSmallCell.smallTextLabel.text ?? ""
-            let tzlabel = selectedSmallCell.timeZoneIdTextLabel.text ?? ""
-            
-            // Set the meal to be passed to WorldWatchTableViewController after the unwind segue.
-            meal = TZIdLocation(city: city, timezone: tzlabel)
+            print("Selected small", selectedSmall.city, selectedSmall.timezone)
+
+            location = TZIdLocation(city: selectedSmall.city, timezone: selectedSmall.timezone)
             
         case "TinySegue":
             
-            os_log("Show Small.", log: OSLog.default, type: .debug)
             guard let tinyTableViewController = segue.destination as? RegionTinyTableViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }

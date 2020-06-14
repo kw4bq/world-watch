@@ -121,7 +121,7 @@ class RegionBigTableViewController: UITableViewController, UINavigationControlle
             }
             
             let selectedBig = big[indexPath.row]
-            print(selectedBig)
+            print("Selected big ", selectedBig)
             countryStateTableViewController.selectedBig = selectedBig
             
         default:

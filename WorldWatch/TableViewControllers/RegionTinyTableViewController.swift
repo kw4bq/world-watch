@@ -33,8 +33,8 @@ class RegionTinyTableViewController: UITableViewController, UINavigationControll
     var result: [String: [String: [String]]] = [:]
     var selectedSmall: String = ""
     var tiny = [String]()
-    var tinymeals = [TZIdLocation]()
-    var meal: TZIdLocation?
+    var tinyLocations = [TZIdLocation]()
+    var location: TZIdLocation?
     
     
     override func viewDidLoad() {
@@ -50,7 +50,7 @@ class RegionTinyTableViewController: UITableViewController, UINavigationControll
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tinymeals.count
+        return tinyLocations.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,11 +62,11 @@ class RegionTinyTableViewController: UITableViewController, UINavigationControll
             fatalError("The dequeued cell is not an instance of TinyTableViewCell.")
         }
         
-        let tinystate = tinymeals[indexPath.row]
+        let tinystate = tinyLocations[indexPath.row]
 
-        // Fetches the appropriate meal for the data source layout.
+        // Fetches the appropriate location for the data source layout.
         cell.tinyLabel.text = tinystate.city
-        cell.tinyTzIdLabel.text = tinystate.timezone
+        cell.tinyTzIdLabel.text = tinystate.getShortName()
         
         return cell
             
@@ -79,11 +79,10 @@ class RegionTinyTableViewController: UITableViewController, UINavigationControll
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        os_log("Show Small.", log: OSLog.default, type: .debug)
-
         switch(segue.identifier ?? "") {
           
         case "UnwindTinyToMeal":
+            
             guard let selectedTinyCell = sender as? RegionTinyTableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
@@ -92,14 +91,14 @@ class RegionTinyTableViewController: UITableViewController, UINavigationControll
                 fatalError("The selected cell is not being displayed by the table")
             }
             
-            let selectedTiny = tinymeals[indexPath.row]
+            let selectedTiny = tinyLocations[indexPath.row]
             print(selectedTiny)
             
             let city = selectedTinyCell.tinyLabel.text ?? ""
             let tzlabel = selectedTinyCell.tinyTzIdLabel.text ?? ""
             
-            // Set the meal to be passed to WorldWatchTableViewController after the unwind segue.
-            meal = TZIdLocation(city: city, timezone: tzlabel)
+            // Set the location to be passed to WorldWatchTableViewController after the unwind segue.
+            location = TZIdLocation(city: city, timezone: tzlabel)
             
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
@@ -138,17 +137,14 @@ class RegionTinyTableViewController: UITableViewController, UINavigationControll
         let tinies: [String] = result.search(key: small) as! [String]
         print("tinies", tinies)
         tiny.append(contentsOf: tinies)
-        //tiny.append(contentsOf: result[small]!.keys.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending })
         
         for city in tiny {
             let search = zoneForName(searchString: city)
-            
-            //let tz = TimeZone(identifier: search[0])
-            
-            guard let meal = TZIdLocation(city: city, timezone: search[0]) else {
-                fatalError("Unable to instantiate meal")
+                        
+            guard let location = TZIdLocation(city: city, timezone: search[0]) else {
+                fatalError("Unable to instantiate location")
             }
-            tinymeals += [meal]
+            tinyLocations += [location]
         }
         
     }
