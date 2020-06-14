@@ -65,6 +65,16 @@ class Meal: NSObject, NSCoding  {
         return dateString
     }
     
+    func getCurrentHourWithTimeZone() -> Int? {
+        let currentDate = Date()
+        let format = DateFormatter()
+        format.timeZone = TimeZone.init(identifier: self.timezone)
+        format.dateFormat = "HH"
+
+        let dateString = format.string(from: currentDate)
+        return Int(dateString)
+    }
+    
     func getCurrentDateWithTimeZone() -> String? {
         let currentDate = Date()
         let format = DateFormatter()

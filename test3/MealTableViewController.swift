@@ -68,7 +68,66 @@ class MealTableViewController: UITableViewController {
         cell.dateLabel.text = meal.getCurrentDateWithTimeZone()
         cell.timeLabel.text = meal.getCurrentTimeWithTimeZone()
         cell.standardNameLabel.text = meal.getName()
-        //cell.abbrLabel.text = meal.getGMTOffset()
+        
+        let hour: Int = meal.getCurrentHourWithTimeZone()!
+        
+        switch hour {
+        case 0...3:
+            cell.contentView.backgroundColor = UIColor(named: "000")
+            cell.iconImageView.image = UIImage(named: "zzz")
+        case 4...5:
+            cell.contentView.backgroundColor = UIColor(named: "050")
+            cell.iconImageView.image = UIImage(named: "rising")
+        case 6...7:
+            cell.contentView.backgroundColor = UIColor(named: "100")
+            cell.iconImageView.image = UIImage(named: "coffee")
+            cell.cityLabel.textColor = .black
+            cell.dateLabel.textColor = .black
+            cell.timeLabel.textColor = .black
+            cell.standardNameLabel.textColor = .black
+        case 8...9:
+            cell.contentView.backgroundColor = UIColor(named: "200")
+            cell.iconImageView.image = UIImage(named: "work")
+            cell.cityLabel.textColor = .black
+            cell.dateLabel.textColor = .black
+            cell.timeLabel.textColor = .black
+            cell.standardNameLabel.textColor = .black
+        case 10...12:
+            cell.contentView.backgroundColor = UIColor(named: "225")
+            cell.iconImageView.image = UIImage(named: "sun")
+            cell.cityLabel.textColor = .black
+            cell.dateLabel.textColor = .black
+            cell.timeLabel.textColor = .black
+            cell.standardNameLabel.textColor = .black
+        case 13...15:
+            cell.contentView.backgroundColor = UIColor(named: "300")
+            cell.iconImageView.image = UIImage(named: "sun")
+            cell.cityLabel.textColor = .black
+            cell.dateLabel.textColor = .black
+            cell.timeLabel.textColor = .black
+            cell.standardNameLabel.textColor = .black
+        case 16...18:
+            cell.contentView.backgroundColor = UIColor(named: "350")
+            cell.iconImageView.image = UIImage(named: "home")
+            cell.cityLabel.textColor = .black
+            cell.dateLabel.textColor = .black
+            cell.timeLabel.textColor = .black
+            cell.standardNameLabel.textColor = .black
+        case 19...20:
+            cell.contentView.backgroundColor = UIColor(named: "400")
+            cell.iconImageView.image = UIImage(named: "rising")
+        case 21...22:
+            cell.contentView.backgroundColor = UIColor(named: "500")
+            cell.iconImageView.image = UIImage(named: "moon")
+        case 23:
+            cell.contentView.backgroundColor = UIColor(named: "000")
+            cell.iconImageView.image = UIImage(named: "zzz")
+        default:
+            cell.contentView.backgroundColor = .white
+            cell.iconImageView.image = UIImage(named: "home")
+        }
+        
+        
         
         return cell
     }
