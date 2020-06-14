@@ -17,6 +17,10 @@ class RegionTimeZone: NSObject, NSCoding  {
     var city: String
     var timezone: String
     
+    func getGMTOffset() -> Float? {
+        return Float((TimeZone.init(identifier: self.timezone)?.secondsFromGMT(for: Date()))!) / Float(3600)
+    }
+    
     func getGMTOffset() -> String? {
         let float: Float = Float((TimeZone.init(identifier: self.timezone)?.secondsFromGMT(for: Date()))!) / Float(3600)
         var str: String = ""

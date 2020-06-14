@@ -100,9 +100,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9CF134DA2494485600B2786D /* test3 */ = {
+		9CF134DA2494485600B2786D /* WorldWatch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9CF134EF2494485700B2786D /* Build configuration list for PBXNativeTarget "test3" */;
+			buildConfigurationList = 9CF134EF2494485700B2786D /* Build configuration list for PBXNativeTarget "WorldWatch" */;
 			buildPhases = (
 				9CF134D72494485600B2786D /* Sources */,
 				9CF134D82494485600B2786D /* Frameworks */,
@@ -112,7 +112,7 @@
 			);
 			dependencies = (
 			);
-			name = test3;
+			name = WorldWatch;
 			productName = test3;
 			productReference = 9CF134DB2494485600B2786D /* WorldWatch.app */;
 			productType = "com.apple.product-type.application";
@@ -132,7 +132,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9CF134D62494485600B2786D /* Build configuration list for PBXProject "test3" */;
+			buildConfigurationList = 9CF134D62494485600B2786D /* Build configuration list for PBXProject "WorldWatch" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -145,7 +145,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9CF134DA2494485600B2786D /* test3 */,
+				9CF134DA2494485600B2786D /* WorldWatch */,
 			);
 		};
 /* End PBXProject section */
@@ -359,7 +359,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9CF134D62494485600B2786D /* Build configuration list for PBXProject "test3" */ = {
+		9CF134D62494485600B2786D /* Build configuration list for PBXProject "WorldWatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9CF134ED2494485700B2786D /* Debug */,
@@ -368,7 +368,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9CF134EF2494485700B2786D /* Build configuration list for PBXNativeTarget "test3" */ = {
+		9CF134EF2494485700B2786D /* Build configuration list for PBXNativeTarget "WorldWatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9CF134F02494485700B2786D /* Debug */,
