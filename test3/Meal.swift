@@ -17,6 +17,20 @@ class Meal: NSObject, NSCoding  {
     var city: String
     var timezone: String
     
+    func getGMTOffset() -> String? {
+        let float: Float = Float((TimeZone.init(identifier: self.timezone)?.secondsFromGMT(for: Date()))!) / Float(3600)
+        var str: String = ""
+        if abs(float.remainder(dividingBy: 1.0)) == 0.0 {
+            str = String(describing: Int(float))
+        } else {
+            str = String(describing: float)
+        }
+        if float >= 0.0 {
+            str = "+" + str
+        } 
+        return str
+    }
+    
     func getAbbr() -> String? {
         return TimeZone.init(identifier: self.timezone)?.abbreviation()
     }
@@ -55,7 +69,7 @@ class Meal: NSObject, NSCoding  {
         let currentDate = Date()
         let format = DateFormatter()
         format.timeZone = TimeZone.init(identifier: self.timezone)
-        format.dateFormat = "yyyy/MM/dd"
+        format.dateFormat = "EEEE, MMM d"
 
         let dateString = format.string(from: currentDate)
         return dateString

@@ -14,10 +14,17 @@ class MealTableViewController: UITableViewController {
     
     //MARK: Properties
      
+    @IBOutlet var worldWatchTableView: UITableView!
+    
     var meals = [Meal]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Reload tableview data every 2 seconds
+        _ = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { timer in
+            self.worldWatchTableView.reloadData()
+        }
         
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
@@ -61,7 +68,7 @@ class MealTableViewController: UITableViewController {
         cell.dateLabel.text = meal.getCurrentDateWithTimeZone()
         cell.timeLabel.text = meal.getCurrentTimeWithTimeZone()
         cell.standardNameLabel.text = meal.getName()
-        cell.abbrLabel.text = meal.getShortName()
+        //cell.abbrLabel.text = meal.getGMTOffset()
         
         return cell
     }
@@ -195,7 +202,6 @@ class MealTableViewController: UITableViewController {
         guard let meal1 = Meal(city: "Sydney", timezone: "Australia/Sydney") else {
             fatalError("Unable to instantiate meal1")
         }
-         
         guard let meal2 = Meal(city: "Tokyo", timezone: "Asia/Tokyo") else {
             fatalError("Unable to instantiate meal2")
         }
@@ -208,7 +214,13 @@ class MealTableViewController: UITableViewController {
         guard let meal5 = Meal(city: "Johannesburg", timezone: "Africa/Johannesburg") else {
             fatalError("Unable to instantiate meal2")
         }
-        guard let meal6 = Meal(city: "London", timezone: "Europe/London") else {
+        guard let meal6 = Meal(city: "Paris", timezone: "Europe/Paris") else {
+            fatalError("Unable to instantiate meal2")
+        }
+        guard let meal12 = Meal(city: "UTC", timezone: "Africa/Banjul") else {
+            fatalError("Unable to instantiate meal2")
+        }
+        guard let meal13 = Meal(city: "Halifax", timezone: "America/Halifax") else {
             fatalError("Unable to instantiate meal2")
         }
         guard let meal7 = Meal(city: "New_York", timezone: "America/New_York") else {
@@ -227,7 +239,7 @@ class MealTableViewController: UITableViewController {
             fatalError("Unable to instantiate meal2")
         }
         
-        meals += [meal1, meal2, meal3, meal4, meal5, meal6, meal7, meal8, meal9, meal10, meal11]
+        meals += [meal1, meal2, meal3, meal4, meal5, meal6, meal12, meal13, meal7, meal8, meal9, meal10, meal11]
     }
     
     private func saveMeals() {
@@ -244,5 +256,6 @@ class MealTableViewController: UITableViewController {
     private func loadMeals() -> [Meal]? {
         return NSKeyedUnarchiver.unarchiveObject(withFile: Meal.ArchiveURL.path) as? [Meal]
     }
+    
     
 }
