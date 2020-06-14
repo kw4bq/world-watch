@@ -12,29 +12,7 @@ import os.log
 
 class WorldWatchViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
     
-    //MARK: Navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        super.prepare(for: segue, sender: sender)
-        
-        // Configure the destination view controller only when the save button is pressed.
-        guard let button = sender as? UIBarButtonItem, button === saveButton else {
-            return
-        }
-        
-        let name = nameTextField.text ?? ""
-        let locationlabeltext = mealNameLabel.text ?? ""
-        
-        // Set the location to be passed to WorldWatchTableViewController after the unwind segue.
-        location = TZIdLocation(city: name, timezone: locationlabeltext)
-        
-    }
-    
     //MARK: Actions
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var mealNameLabel: UILabel!
-    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         
@@ -52,6 +30,26 @@ class WorldWatchViewController: UIViewController, UITextFieldDelegate, UINavigat
         }
     }
     
+    @IBAction func setDefaultLabelText(_ sender: UIButton) {
+        cityLabel.text = "Default Text"
+    }
+    
+    
+    //MARK: Properties
+
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var nextDSTLabel: UILabel!
+    @IBOutlet weak var isDSTLabel: UILabel!
+    @IBOutlet weak var localOffsetLabel: UILabel!
+    @IBOutlet weak var gmtOffsetLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var standardNameLabel: UILabel!
+    @IBOutlet weak var timezoneLabel: UILabel!
+    
     /*
      This value is either passed by `WorldWatchTableViewController` in `prepare(for:sender:)`
      or constructed as part of adding a new location.
@@ -64,10 +62,18 @@ class WorldWatchViewController: UIViewController, UITextFieldDelegate, UINavigat
         nameTextField.delegate = self
         
         // Set up views if editing an existing location.
-        if let meal = location {
+        if location != nil {
             navigationItem.title = location?.city
             nameTextField.text   = location?.city
-            mealNameLabel.text   = location?.timezone
+            //cityLabel.text   = location?.timezone
+            timeLabel.text = location?.getCurrentTimeWithTimeZone()
+            dateLabel.text = location?.getCurrentDateWithTimeZone()
+            standardNameLabel.text = location?.getName()
+            gmtOffsetLabel.text = "GMT Offset:" + (location?.getGMTOffset())!
+            timezoneLabel.text = location?.timezone
+            localOffsetLabel.text = "Local Offset:" + (location?.getGMTOffset())!
+            isDSTLabel.text = "Is DST? Yes"
+            nextDSTLabel.text = "Next DST transisition: Sunday September 14, 2020"
         }
         
         // Enable the Save button only if the text field has a valid location name.
@@ -90,10 +96,6 @@ class WorldWatchViewController: UIViewController, UITextFieldDelegate, UINavigat
         saveButton.isEnabled = false
     }
     
-    //MARK: Actions
-    @IBAction func setDefaultLabelText(_ sender: UIButton) {
-        mealNameLabel.text = "Default Text"
-    }
  
     //MARK: Private Methods
 
@@ -103,7 +105,24 @@ class WorldWatchViewController: UIViewController, UITextFieldDelegate, UINavigat
         saveButton.isEnabled = !text.isEmpty
     }
     
+    //MARK: Navigation
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        super.prepare(for: segue, sender: sender)
+        
+        // Configure the destination view controller only when the save button is pressed.
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            return
+        }
+        
+        let name = nameTextField.text ?? ""
+        let locationlabeltext = cityLabel.text ?? ""
+        
+        // Set the location to be passed to WorldWatchTableViewController after the unwind segue.
+        location = TZIdLocation(city: name, timezone: locationlabeltext)
+        
+    }
     
 }
 
