@@ -91,6 +91,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .white
             cell.dateLabel.textColor = .white
             cell.timeLabel.textColor = .white
+            cell.gmtOffset.textColor = .white
+            cell.offsetsLabel.textColor = .white
             cell.standardNameLabel.textColor = .white
         case 1:
             cell.contentView.backgroundColor = UIColor(named: "050")
@@ -98,6 +100,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .white
             cell.dateLabel.textColor = .white
             cell.timeLabel.textColor = .white
+            cell.gmtOffset.textColor = .white
+            cell.offsetsLabel.textColor = .white
             cell.standardNameLabel.textColor = .white
         case 2:
             cell.contentView.backgroundColor = UIColor(named: "050")
@@ -106,6 +110,7 @@ class WorldWatchTableViewController: UITableViewController {
             cell.dateLabel.textColor = .white
             cell.timeLabel.textColor = .white
             cell.gmtOffset.textColor = .white
+            cell.offsetsLabel.textColor = .white
             cell.standardNameLabel.textColor = .white
         case 3:
             cell.contentView.backgroundColor = UIColor(named: "050")
@@ -113,6 +118,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .white
             cell.dateLabel.textColor = .white
             cell.timeLabel.textColor = .white
+            cell.gmtOffset.textColor = .white
+            cell.offsetsLabel.textColor = .white
             cell.standardNameLabel.textColor = .white
         case 4:
             cell.contentView.backgroundColor = UIColor(named: "100")
@@ -120,6 +127,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .white
             cell.dateLabel.textColor = .white
             cell.timeLabel.textColor = .white
+            cell.gmtOffset.textColor = .white
+            cell.offsetsLabel.textColor = .white
             cell.standardNameLabel.textColor = .white
         case 5:
             cell.contentView.backgroundColor = UIColor(named: "100")
@@ -127,6 +136,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .white
             cell.dateLabel.textColor = .white
             cell.timeLabel.textColor = .white
+            cell.gmtOffset.textColor = .white
+            cell.offsetsLabel.textColor = .white
             cell.standardNameLabel.textColor = .white
         case 6:
             cell.contentView.backgroundColor = UIColor(named: "150")
@@ -269,6 +280,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .white
             cell.dateLabel.textColor = .white
             cell.timeLabel.textColor = .white
+            cell.gmtOffset.textColor = .white
+            cell.offsetsLabel.textColor = .white
             cell.standardNameLabel.textColor = .white
         case 22:
             cell.contentView.backgroundColor = UIColor(named: "350")
@@ -276,6 +289,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .white
             cell.dateLabel.textColor = .white
             cell.timeLabel.textColor = .white
+            cell.gmtOffset.textColor = .white
+            cell.offsetsLabel.textColor = .white
             cell.standardNameLabel.textColor = .white
         case 23:
             cell.contentView.backgroundColor = UIColor(named: "050")
@@ -283,6 +298,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .white
             cell.dateLabel.textColor = .white
             cell.timeLabel.textColor = .white
+            cell.gmtOffset.textColor = .white
+            cell.offsetsLabel.textColor = .white
             cell.standardNameLabel.textColor = .white
         default:
             cell.contentView.backgroundColor = .white
@@ -290,6 +307,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .white
             cell.dateLabel.textColor = .white
             cell.timeLabel.textColor = .white
+            cell.gmtOffset.textColor = .white
+            cell.offsetsLabel.textColor = .white
             cell.standardNameLabel.textColor = .white
         }
 
