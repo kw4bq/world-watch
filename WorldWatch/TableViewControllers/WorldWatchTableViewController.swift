@@ -64,12 +64,16 @@ class WorldWatchTableViewController: UITableViewController {
         
         // Fetches the appropriate location for the data source layout.
         let location = locations[indexPath.row]
-                
+        
+        let gmtOffset = location.getGMTOffset() ?? "N/A"
+        let localOffset = location.getLocalOffsetFromTZ() ?? "N/A"
+        let offsets = "GMT" + gmtOffset + "Local" + localOffset
         
         cell.cityLabel.text = location.city
         cell.dateLabel.text = location.getCurrentDateWithTimeZone()
-
-        let offsets = (location.getGMTOffset() ?? "N/A") + "/" + (location.getLocalOffsetFromTZ() ?? "N/A")
+        cell.offsetsLabel.text = "Local" + localOffset
+        cell.gmtOffset.text = "GMT" + gmtOffset
+        
 
         cell.timeLabel.text = location.getCurrentTimeWithTimeZone() ?? "N/A"
         
@@ -101,6 +105,7 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .white
             cell.dateLabel.textColor = .white
             cell.timeLabel.textColor = .white
+            cell.gmtOffset.textColor = .white
             cell.standardNameLabel.textColor = .white
         case 3:
             cell.contentView.backgroundColor = UIColor(named: "050")
@@ -129,6 +134,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .black
             cell.dateLabel.textColor = .black
             cell.timeLabel.textColor = .black
+            cell.gmtOffset.textColor = .black
+            cell.offsetsLabel.textColor = .black
             cell.standardNameLabel.textColor = .black
         case 7:
             cell.contentView.backgroundColor = UIColor(named: "150")
@@ -136,6 +143,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .black
             cell.dateLabel.textColor = .black
             cell.timeLabel.textColor = .black
+            cell.gmtOffset.textColor = .black
+            cell.offsetsLabel.textColor = .black
             cell.standardNameLabel.textColor = .black
         case 8:
             cell.contentView.backgroundColor = UIColor(named: "200")
@@ -143,6 +152,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .black
             cell.dateLabel.textColor = .black
             cell.timeLabel.textColor = .black
+            cell.gmtOffset.textColor = .black
+            cell.offsetsLabel.textColor = .black
             cell.standardNameLabel.textColor = .black
         case 9:
             cell.contentView.backgroundColor = UIColor(named: "200")
@@ -150,6 +161,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .black
             cell.dateLabel.textColor = .black
             cell.timeLabel.textColor = .black
+            cell.gmtOffset.textColor = .black
+            cell.offsetsLabel.textColor = .black
             cell.standardNameLabel.textColor = .black
         case 10:
             cell.contentView.backgroundColor = UIColor(named: "225")
@@ -157,6 +170,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .black
             cell.dateLabel.textColor = .black
             cell.timeLabel.textColor = .black
+            cell.gmtOffset.textColor = .black
+            cell.offsetsLabel.textColor = .black
             cell.standardNameLabel.textColor = .black
         case 11:
             cell.contentView.backgroundColor = UIColor(named: "225")
@@ -164,6 +179,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .black
             cell.dateLabel.textColor = .black
             cell.timeLabel.textColor = .black
+            cell.gmtOffset.textColor = .black
+            cell.offsetsLabel.textColor = .black
             cell.standardNameLabel.textColor = .black
         case 12:
             cell.contentView.backgroundColor = UIColor(named: "225")
@@ -171,6 +188,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .black
             cell.dateLabel.textColor = .black
             cell.timeLabel.textColor = .black
+            cell.gmtOffset.textColor = .black
+            cell.offsetsLabel.textColor = .black
             cell.standardNameLabel.textColor = .black
         case 13:
             cell.contentView.backgroundColor = UIColor(named: "225")
@@ -178,6 +197,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .black
             cell.dateLabel.textColor = .black
             cell.timeLabel.textColor = .black
+            cell.gmtOffset.textColor = .black
+            cell.offsetsLabel.textColor = .black
             cell.standardNameLabel.textColor = .black
         case 14:
             cell.contentView.backgroundColor = UIColor(named: "225")
@@ -185,6 +206,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .black
             cell.dateLabel.textColor = .black
             cell.timeLabel.textColor = .black
+            cell.gmtOffset.textColor = .black
+            cell.offsetsLabel.textColor = .black
             cell.standardNameLabel.textColor = .black
         case 15:
             cell.contentView.backgroundColor = UIColor(named: "250")
@@ -192,6 +215,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .black
             cell.dateLabel.textColor = .black
             cell.timeLabel.textColor = .black
+            cell.gmtOffset.textColor = .black
+            cell.offsetsLabel.textColor = .black
             cell.standardNameLabel.textColor = .black
         case 16:
             cell.contentView.backgroundColor = UIColor(named: "250")
@@ -199,6 +224,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .black
             cell.dateLabel.textColor = .black
             cell.timeLabel.textColor = .black
+            cell.gmtOffset.textColor = .black
+            cell.offsetsLabel.textColor = .black
             cell.standardNameLabel.textColor = .black
         case 17:
             cell.contentView.backgroundColor = UIColor(named: "250")
@@ -206,6 +233,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .black
             cell.dateLabel.textColor = .black
             cell.timeLabel.textColor = .black
+            cell.gmtOffset.textColor = .black
+            cell.offsetsLabel.textColor = .black
             cell.standardNameLabel.textColor = .black
         case 18:
             cell.contentView.backgroundColor = UIColor(named: "250")
@@ -213,6 +242,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .black
             cell.dateLabel.textColor = .black
             cell.timeLabel.textColor = .black
+            cell.gmtOffset.textColor = .black
+            cell.offsetsLabel.textColor = .black
             cell.standardNameLabel.textColor = .black
         case 19:
             cell.contentView.backgroundColor = UIColor(named: "300")
@@ -220,6 +251,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .black
             cell.dateLabel.textColor = .black
             cell.timeLabel.textColor = .black
+            cell.gmtOffset.textColor = .black
+            cell.offsetsLabel.textColor = .black
             cell.standardNameLabel.textColor = .black
         case 20:
             cell.contentView.backgroundColor = UIColor(named: "300")
@@ -227,6 +260,8 @@ class WorldWatchTableViewController: UITableViewController {
             cell.cityLabel.textColor = .black
             cell.dateLabel.textColor = .black
             cell.timeLabel.textColor = .black
+            cell.gmtOffset.textColor = .black
+            cell.offsetsLabel.textColor = .black
             cell.standardNameLabel.textColor = .black
         case 21:
             cell.contentView.backgroundColor = UIColor(named: "350")

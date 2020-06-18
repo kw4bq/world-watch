@@ -31,7 +31,8 @@ class TZIdLocation: NSObject, NSCoding  {
         }
         if float >= 0.0 {
             str = "+" + str
-        } 
+        }
+        // don't need - ??
         return str
     }
     
@@ -97,6 +98,16 @@ class TZIdLocation: NSObject, NSCoding  {
         let format = DateFormatter()
         format.timeZone = TimeZone.init(identifier: self.timezone)
         format.dateFormat = "HH:mm"
+
+        let dateString = format.string(from: currentDate)
+        return dateString
+    }
+    
+    func getCurrentTwelveHourWithTimeZone() -> String? {
+        let currentDate = Date()
+        let format = DateFormatter()
+        format.timeZone = TimeZone.init(identifier: self.timezone)
+        format.dateFormat = "hh:mm a"
 
         let dateString = format.string(from: currentDate)
         return dateString

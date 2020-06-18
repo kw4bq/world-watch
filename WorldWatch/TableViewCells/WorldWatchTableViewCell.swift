@@ -17,6 +17,9 @@ class WorldWatchTableViewCell: UITableViewCell {
     @IBOutlet weak var abbrLabel: UILabel!
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var standardNameLabel: UILabel!
+    @IBOutlet weak var offsetsLabel: UILabel!
+    @IBOutlet weak var twelveHourLabel: UILabel!
+    @IBOutlet weak var gmtOffset: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
