@@ -41,6 +41,7 @@ class WorldWatchViewController: UIViewController, UITextFieldDelegate, UINavigat
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var timezoneImageView: UIImageView!
     @IBOutlet weak var nextDSTLabel: UILabel!
     @IBOutlet weak var isDSTLabel: UILabel!
     @IBOutlet weak var localOffsetLabel: UILabel!

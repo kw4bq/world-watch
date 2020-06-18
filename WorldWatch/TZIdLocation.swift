@@ -35,6 +35,32 @@ class TZIdLocation: NSObject, NSCoding  {
         return str
     }
     
+    func getLocalOffsetFromTZ() -> String? {
+        
+        let offsetFromGMT: Float = Float(Calendar.current.timeZone.secondsFromGMT() / 60 / 60)
+
+        let float: Float = Float((TimeZone.init(identifier: self.timezone)?.secondsFromGMT(for: Date()))!) / Float(3600)
+
+        let difference: Float = abs(float-offsetFromGMT)
+        
+        var str: String = ""
+        if abs(difference.remainder(dividingBy: 1.0)) == 0.0 {
+            // cast to int to get rid of precision
+            str = String(describing: Int(difference))
+        } else {
+            str = String(describing: difference)
+        }
+        if difference >= 0.0 {
+            if offsetFromGMT > float {
+                str = "-" + str
+            } else {
+                str = "+" + str
+            }
+        }
+        return str
+    }
+
+    
     func getAbbr() -> String? {
         return TimeZone.init(identifier: self.timezone)?.abbreviation()
     }
@@ -49,14 +75,21 @@ class TZIdLocation: NSObject, NSCoding  {
         }
     }
     
+    func getShortGenericName() -> String? {
+        let tz = TimeZone.init(identifier: self.timezone)
+        return tz?.localizedName(for: .shortGeneric, locale: .current)
+    }
+    
     // CST
     func getShortName() -> String? {
         let tz = TimeZone.init(identifier: self.timezone)
+        var str: String? = ""
         if (tz?.isDaylightSavingTime(for: Date()))! {
-            return tz?.localizedName(for: .shortDaylightSaving, locale: .current)
+            str = tz?.localizedName(for: .shortDaylightSaving, locale: .current)
         } else {
-            return tz?.localizedName(for: .shortStandard, locale: .current)
+            str = tz?.localizedName(for: .shortStandard, locale: .current)
         }
+        return str
     }
     
     func getCurrentTimeWithTimeZone() -> String? {
@@ -83,8 +116,9 @@ class TZIdLocation: NSObject, NSCoding  {
         let currentDate = Date()
         let format = DateFormatter()
         format.timeZone = TimeZone.init(identifier: self.timezone)
-        format.dateFormat = "EEEE, MMM d"
-
+        //format.dateFormat = "EEEE, MMM d"
+        format.dateFormat = "E, d MMM yyyy"
+        
         let dateString = format.string(from: currentDate)
         return dateString
     }

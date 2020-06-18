@@ -65,80 +65,186 @@ class WorldWatchTableViewController: UITableViewController {
         // Fetches the appropriate location for the data source layout.
         let location = locations[indexPath.row]
                 
+        
         cell.cityLabel.text = location.city
         cell.dateLabel.text = location.getCurrentDateWithTimeZone()
-        cell.timeLabel.text = location.getCurrentTimeWithTimeZone()
-        cell.standardNameLabel.text = location.getName()
+
+        let offsets = (location.getGMTOffset() ?? "N/A") + "/" + (location.getLocalOffsetFromTZ() ?? "N/A")
+
+        cell.timeLabel.text = location.getCurrentTimeWithTimeZone() ?? "N/A"
         
+        //let shortname = location.getShortName() ?? "N/A"
+        //let shortname = location.getName() ?? "N/A"
+        cell.standardNameLabel.text = location.getName() ?? "N/A"
+        //cell.standardNameLabel.text = shortname + "(" + offsets + ")"
+                
         let hour: Int = location.getCurrentHourWithTimeZone()!
-        
+                
         switch hour {
-        case 0...3:
-            cell.contentView.backgroundColor = UIColor(named: "000")
-            cell.iconImageView.image = UIImage(named: "zzz")
-            cell.cityLabel.textColor = .white
-            cell.dateLabel.textColor = .white
-            cell.timeLabel.textColor = .white
-            cell.standardNameLabel.textColor = .white
-        case 4...5:
+        case 0:
             cell.contentView.backgroundColor = UIColor(named: "050")
-            cell.iconImageView.image = UIImage(named: "rising")
+            cell.iconImageView.image = UIImage(named: "00.00")
             cell.cityLabel.textColor = .white
             cell.dateLabel.textColor = .white
             cell.timeLabel.textColor = .white
             cell.standardNameLabel.textColor = .white
-        case 6...7:
+        case 1:
+            cell.contentView.backgroundColor = UIColor(named: "050")
+            cell.iconImageView.image = UIImage(named: "01.00")
+            cell.cityLabel.textColor = .white
+            cell.dateLabel.textColor = .white
+            cell.timeLabel.textColor = .white
+            cell.standardNameLabel.textColor = .white
+        case 2:
+            cell.contentView.backgroundColor = UIColor(named: "050")
+            cell.iconImageView.image = UIImage(named: "02.00")
+            cell.cityLabel.textColor = .white
+            cell.dateLabel.textColor = .white
+            cell.timeLabel.textColor = .white
+            cell.standardNameLabel.textColor = .white
+        case 3:
+            cell.contentView.backgroundColor = UIColor(named: "050")
+            cell.iconImageView.image = UIImage(named: "03.00")
+            cell.cityLabel.textColor = .white
+            cell.dateLabel.textColor = .white
+            cell.timeLabel.textColor = .white
+            cell.standardNameLabel.textColor = .white
+        case 4:
             cell.contentView.backgroundColor = UIColor(named: "100")
-            cell.iconImageView.image = UIImage(named: "coffee")
-            cell.cityLabel.textColor = .black
-            cell.dateLabel.textColor = .black
-            cell.timeLabel.textColor = .black
-            cell.standardNameLabel.textColor = .black
-        case 8...9:
-            cell.contentView.backgroundColor = UIColor(named: "200")
-            cell.iconImageView.image = UIImage(named: "work")
-            cell.cityLabel.textColor = .black
-            cell.dateLabel.textColor = .black
-            cell.timeLabel.textColor = .black
-            cell.standardNameLabel.textColor = .black
-        case 10...12:
-            cell.contentView.backgroundColor = UIColor(named: "225")
-            cell.iconImageView.image = UIImage(named: "sun")
-            cell.cityLabel.textColor = .black
-            cell.dateLabel.textColor = .black
-            cell.timeLabel.textColor = .black
-            cell.standardNameLabel.textColor = .black
-        case 13...15:
-            cell.contentView.backgroundColor = UIColor(named: "300")
-            cell.iconImageView.image = UIImage(named: "sun")
-            cell.cityLabel.textColor = .black
-            cell.dateLabel.textColor = .black
-            cell.timeLabel.textColor = .black
-            cell.standardNameLabel.textColor = .black
-        case 16...18:
-            cell.contentView.backgroundColor = UIColor(named: "350")
-            cell.iconImageView.image = UIImage(named: "home")
-            cell.cityLabel.textColor = .black
-            cell.dateLabel.textColor = .black
-            cell.timeLabel.textColor = .black
-            cell.standardNameLabel.textColor = .black
-        case 19...20:
-            cell.contentView.backgroundColor = UIColor(named: "400")
-            cell.iconImageView.image = UIImage(named: "rising")
+            cell.iconImageView.image = UIImage(named: "04.00")
             cell.cityLabel.textColor = .white
             cell.dateLabel.textColor = .white
             cell.timeLabel.textColor = .white
             cell.standardNameLabel.textColor = .white
-        case 21...22:
-            cell.contentView.backgroundColor = UIColor(named: "500")
-            cell.iconImageView.image = UIImage(named: "moon")
+        case 5:
+            cell.contentView.backgroundColor = UIColor(named: "100")
+            cell.iconImageView.image = UIImage(named: "05.00")
+            cell.cityLabel.textColor = .white
+            cell.dateLabel.textColor = .white
+            cell.timeLabel.textColor = .white
+            cell.standardNameLabel.textColor = .white
+        case 6:
+            cell.contentView.backgroundColor = UIColor(named: "150")
+            cell.iconImageView.image = UIImage(named: "06.00")
+            cell.cityLabel.textColor = .black
+            cell.dateLabel.textColor = .black
+            cell.timeLabel.textColor = .black
+            cell.standardNameLabel.textColor = .black
+        case 7:
+            cell.contentView.backgroundColor = UIColor(named: "150")
+            cell.iconImageView.image = UIImage(named: "07.00")
+            cell.cityLabel.textColor = .black
+            cell.dateLabel.textColor = .black
+            cell.timeLabel.textColor = .black
+            cell.standardNameLabel.textColor = .black
+        case 8:
+            cell.contentView.backgroundColor = UIColor(named: "200")
+            cell.iconImageView.image = UIImage(named: "08.00")
+            cell.cityLabel.textColor = .black
+            cell.dateLabel.textColor = .black
+            cell.timeLabel.textColor = .black
+            cell.standardNameLabel.textColor = .black
+        case 9:
+            cell.contentView.backgroundColor = UIColor(named: "200")
+            cell.iconImageView.image = UIImage(named: "09.00")
+            cell.cityLabel.textColor = .black
+            cell.dateLabel.textColor = .black
+            cell.timeLabel.textColor = .black
+            cell.standardNameLabel.textColor = .black
+        case 10:
+            cell.contentView.backgroundColor = UIColor(named: "225")
+            cell.iconImageView.image = UIImage(named: "10.00")
+            cell.cityLabel.textColor = .black
+            cell.dateLabel.textColor = .black
+            cell.timeLabel.textColor = .black
+            cell.standardNameLabel.textColor = .black
+        case 11:
+            cell.contentView.backgroundColor = UIColor(named: "225")
+            cell.iconImageView.image = UIImage(named: "14.00")
+            cell.cityLabel.textColor = .black
+            cell.dateLabel.textColor = .black
+            cell.timeLabel.textColor = .black
+            cell.standardNameLabel.textColor = .black
+        case 12:
+            cell.contentView.backgroundColor = UIColor(named: "225")
+            cell.iconImageView.image = UIImage(named: "12.00")
+            cell.cityLabel.textColor = .black
+            cell.dateLabel.textColor = .black
+            cell.timeLabel.textColor = .black
+            cell.standardNameLabel.textColor = .black
+        case 13:
+            cell.contentView.backgroundColor = UIColor(named: "225")
+            cell.iconImageView.image = UIImage(named: "15.00")
+            cell.cityLabel.textColor = .black
+            cell.dateLabel.textColor = .black
+            cell.timeLabel.textColor = .black
+            cell.standardNameLabel.textColor = .black
+        case 14:
+            cell.contentView.backgroundColor = UIColor(named: "225")
+            cell.iconImageView.image = UIImage(named: "15.00")
+            cell.cityLabel.textColor = .black
+            cell.dateLabel.textColor = .black
+            cell.timeLabel.textColor = .black
+            cell.standardNameLabel.textColor = .black
+        case 15:
+            cell.contentView.backgroundColor = UIColor(named: "250")
+            cell.iconImageView.image = UIImage(named: "16.00")
+            cell.cityLabel.textColor = .black
+            cell.dateLabel.textColor = .black
+            cell.timeLabel.textColor = .black
+            cell.standardNameLabel.textColor = .black
+        case 16:
+            cell.contentView.backgroundColor = UIColor(named: "250")
+            cell.iconImageView.image = UIImage(named: "16.00")
+            cell.cityLabel.textColor = .black
+            cell.dateLabel.textColor = .black
+            cell.timeLabel.textColor = .black
+            cell.standardNameLabel.textColor = .black
+        case 17:
+            cell.contentView.backgroundColor = UIColor(named: "250")
+            cell.iconImageView.image = UIImage(named: "16.00")
+            cell.cityLabel.textColor = .black
+            cell.dateLabel.textColor = .black
+            cell.timeLabel.textColor = .black
+            cell.standardNameLabel.textColor = .black
+        case 18:
+            cell.contentView.backgroundColor = UIColor(named: "250")
+            cell.iconImageView.image = UIImage(named: "18.00")
+            cell.cityLabel.textColor = .black
+            cell.dateLabel.textColor = .black
+            cell.timeLabel.textColor = .black
+            cell.standardNameLabel.textColor = .black
+        case 19:
+            cell.contentView.backgroundColor = UIColor(named: "300")
+            cell.iconImageView.image = UIImage(named: "19.00")
+            cell.cityLabel.textColor = .black
+            cell.dateLabel.textColor = .black
+            cell.timeLabel.textColor = .black
+            cell.standardNameLabel.textColor = .black
+        case 20:
+            cell.contentView.backgroundColor = UIColor(named: "300")
+            cell.iconImageView.image = UIImage(named: "20.00")
+            cell.cityLabel.textColor = .black
+            cell.dateLabel.textColor = .black
+            cell.timeLabel.textColor = .black
+            cell.standardNameLabel.textColor = .black
+        case 21:
+            cell.contentView.backgroundColor = UIColor(named: "350")
+            cell.iconImageView.image = UIImage(named: "21.00")
+            cell.cityLabel.textColor = .white
+            cell.dateLabel.textColor = .white
+            cell.timeLabel.textColor = .white
+            cell.standardNameLabel.textColor = .white
+        case 22:
+            cell.contentView.backgroundColor = UIColor(named: "350")
+            cell.iconImageView.image = UIImage(named: "22.00")
             cell.cityLabel.textColor = .white
             cell.dateLabel.textColor = .white
             cell.timeLabel.textColor = .white
             cell.standardNameLabel.textColor = .white
         case 23:
-            cell.contentView.backgroundColor = UIColor(named: "000")
-            cell.iconImageView.image = UIImage(named: "zzz")
+            cell.contentView.backgroundColor = UIColor(named: "050")
+            cell.iconImageView.image = UIImage(named: "23.00")
             cell.cityLabel.textColor = .white
             cell.dateLabel.textColor = .white
             cell.timeLabel.textColor = .white
