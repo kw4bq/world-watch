@@ -27,7 +27,7 @@ class WorldWatchTableViewController: UITableViewController {
         }
         
         // Use the edit button item provided by the table view controller.
-        navigationItem.leftBarButtonItem = editButtonItem
+        //navigationItem.leftBarButtonItem = editButtonItem
         
         // Load any saved locations, otherwise load sample data.
         if let savedLocations = loadLocations() {
@@ -72,14 +72,8 @@ class WorldWatchTableViewController: UITableViewController {
         cell.dateLabel.text = location.getCurrentDateWithTimeZone()
         cell.offsetsLabel.text = "Local" + localOffset
         cell.gmtOffset.text = "GMT" + gmtOffset
-        
-
         cell.timeLabel.text = location.getCurrentTimeWithTimeZone() ?? "N/A"
-        
-        //let shortname = location.getShortName() ?? "N/A"
-        //let shortname = location.getName() ?? "N/A"
         cell.standardNameLabel.text = location.getName() ?? "N/A"
-        //cell.standardNameLabel.text = shortname + "(" + offsets + ")"
                 
         let hour: Int = location.getCurrentHourWithTimeZone()!
                 
@@ -414,14 +408,23 @@ class WorldWatchTableViewController: UITableViewController {
      
     private func loadSampleLocations() {
 
+        guard let Auckland = TZIdLocation(city: "Auckland", timezone: "Pacific/Auckland") else {
+            fatalError("Unable to instantiate Auckland")
+        }
         guard let Sydney = TZIdLocation(city: "Sydney", timezone: "Australia/Sydney") else {
             fatalError("Unable to instantiate Sydney")
         }
         guard let Tokyo = TZIdLocation(city: "Tokyo", timezone: "Asia/Tokyo") else {
             fatalError("Unable to instantiate Tokyo")
         }
+        guard let Taipei = TZIdLocation(city: "Taipei", timezone: "Asia/Taipei") else {
+            fatalError("Unable to instantiate Taipei")
+        }
         guard let Jakarta = TZIdLocation(city: "Jakarta", timezone: "Asia/Jakarta") else {
             fatalError("Unable to instantiate Jakarta")
+        }
+        guard let Dhaka = TZIdLocation(city: "Dhaka", timezone: "Asia/Dhaka") else {
+            fatalError("Unable to instantiate Dhaka")
         }
         guard let Calcutta = TZIdLocation(city: "Calcutta", timezone: "Asia/Calcutta") else {
             fatalError("Unable to instantiate Calcutta")
@@ -429,11 +432,14 @@ class WorldWatchTableViewController: UITableViewController {
         guard let Dubai = TZIdLocation(city: "Dubai", timezone: "Asia/Dubai") else {
             fatalError("Unable to instantiate Dubai")
         }
+        guard let Moscow = TZIdLocation(city: "Moscow", timezone: "Europe/Moscow") else {
+            fatalError("Unable to instantiate Moscow")
+        }
         guard let Johannesburg = TZIdLocation(city: "Johannesburg", timezone: "Africa/Johannesburg") else {
             fatalError("Unable to instantiate Johannesburg")
         }
-        guard let Paris = TZIdLocation(city: "Paris", timezone: "Europe/Paris") else {
-            fatalError("Unable to instantiate Paris")
+        guard let London = TZIdLocation(city: "London", timezone: "Europe/London") else {
+            fatalError("Unable to instantiate London")
         }
         guard let UTC = TZIdLocation(city: "UTC", timezone: "Africa/Banjul") else {
             fatalError("Unable to instantiate UTC")
@@ -453,11 +459,14 @@ class WorldWatchTableViewController: UITableViewController {
         guard let Los_Angeles = TZIdLocation(city: "Los_Angeles", timezone: "America/Los_Angeles") else {
             fatalError("Unable to instantiate Los_Angeles")
         }
+        guard let Anchorage = TZIdLocation(city: "Anchorage", timezone: "America/Anchorage") else {
+            fatalError("Unable to instantiate Anchorage")
+        }
         guard let Honolulu = TZIdLocation(city: "Honolulu", timezone: "Pacific/Honolulu") else {
             fatalError("Unable to instantiate Honolulu")
         }
         
-        locations += [Sydney, Tokyo, Jakarta, Calcutta, Dubai, Johannesburg, Paris, UTC, Halifax, New_York, Chicago, Denver, Los_Angeles, Honolulu]
+        locations += [Auckland, Sydney, Tokyo, Taipei, Jakarta, Dhaka, Calcutta, Dubai, Moscow, Johannesburg, London, UTC, Halifax, New_York, Chicago, Denver, Los_Angeles, Anchorage, Honolulu]
     }
     
     private func sortLocations() {

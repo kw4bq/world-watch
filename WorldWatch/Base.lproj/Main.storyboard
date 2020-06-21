@@ -35,7 +35,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rising" translatesAutoresizingMaskIntoConstraints="NO" id="JBz-VH-8Ws">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JBz-VH-8Ws">
                                             <rect key="frame" x="13" y="11" width="40" height="40"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -487,7 +487,4 @@
     <inferredMetricsTieBreakers>
         <segue reference="VSI-NB-GpM"/>
     </inferredMetricsTieBreakers>
-    <resources>
-        <image name="rising" width="127" height="126"/>
-    </resources>
 </document>

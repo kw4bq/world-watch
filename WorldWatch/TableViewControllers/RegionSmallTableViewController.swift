@@ -103,14 +103,14 @@ class RegionSmallTableViewController: UITableViewController, UINavigationControl
         
         for city in small {
             let search = zoneForName(searchString: city)
-            print("Searching zone for name", city, search[0])
+            //print("Searching zone for name", city, search[0])
             if search.count == 1 {
                 guard let location = TZIdLocation(city: city, timezone: search[0]) else {
                     fatalError("Unable to instantiate location")
                 }
                 smallRegions += [location]
             } else {
-                print("Setting TZ to nil for", city)
+                //print("Setting TZ to nil for", city)
                 guard let location = TZIdLocation(city: city, timezone: "-------") else {
                     fatalError("Unable to instantiate location")
                 }
@@ -140,7 +140,8 @@ class RegionSmallTableViewController: UITableViewController, UINavigationControl
             }
             
             let selectedSmall = smallRegions[indexPath.row]
-            print("Selected small", selectedSmall.city, selectedSmall.timezone)
+            
+            //print("Selected small", selectedSmall.city, selectedSmall.timezone)
 
             location = TZIdLocation(city: selectedSmall.city, timezone: selectedSmall.timezone)
             
