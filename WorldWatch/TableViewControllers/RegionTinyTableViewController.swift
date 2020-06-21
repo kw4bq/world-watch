@@ -92,7 +92,7 @@ class RegionTinyTableViewController: UITableViewController, UINavigationControll
             }
             
             let selectedTiny = tinyLocations[indexPath.row]
-            print(selectedTiny)
+            //print(selectedTiny)
             
             let city = selectedTinyCell.tinyLabel.text ?? ""
             let tzlabel = selectedTinyCell.tinyTzIdLabel.text ?? ""
@@ -135,7 +135,7 @@ class RegionTinyTableViewController: UITableViewController, UINavigationControll
         }
         
         let tinies: [String] = result.search(key: small) as! [String]
-        print("tinies", tinies)
+        //print("tinies", tinies)
         tiny.append(contentsOf: tinies)
         
         for city in tiny {

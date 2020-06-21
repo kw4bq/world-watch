@@ -101,7 +101,6 @@
                                     <outlet property="offsetsLabel" destination="s92-OV-b3q" id="odH-AR-Uhy"/>
                                     <outlet property="standardNameLabel" destination="rav-E7-SVf" id="bv9-hI-HlM"/>
                                     <outlet property="timeLabel" destination="cpf-fm-efT" id="QSw-vm-PMg"/>
-                                    <segue destination="Jcr-LI-394" kind="show" identifier="ShowDetail" id="VSI-NB-GpM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -484,7 +483,4 @@
             <point key="canvasLocation" x="180" y="-535"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="VSI-NB-GpM"/>
-    </inferredMetricsTieBreakers>
 </document>

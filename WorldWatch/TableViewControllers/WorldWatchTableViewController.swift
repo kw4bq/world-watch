@@ -26,6 +26,9 @@ class WorldWatchTableViewController: UITableViewController {
             self.worldWatchTableView.reloadData()
         }
         
+        self.worldWatchTableView.allowsSelection = false
+        self.worldWatchTableView.allowsSelectionDuringEditing = false
+        
         // Use the edit button item provided by the table view controller.
         //navigationItem.leftBarButtonItem = editButtonItem
         
