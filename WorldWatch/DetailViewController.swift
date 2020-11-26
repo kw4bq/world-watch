@@ -1,6 +1,6 @@
 //
-//  WorldWatchViewController.swift
-//  test2
+//  DetailViewController.swift
+//  World Watch
 //
 //  Created by emery on 6/12/20.
 //  Copyright © 2020 emery. All rights reserved.
