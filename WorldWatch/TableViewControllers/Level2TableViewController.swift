@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class RegionSmallTableViewController: UITableViewController, UINavigationControllerDelegate {
+class Level2TableViewController: UITableViewController, UINavigationControllerDelegate {
 
     //MARK: Properties
 

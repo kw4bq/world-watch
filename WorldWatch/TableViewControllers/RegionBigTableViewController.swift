@@ -9,13 +9,15 @@
 import UIKit
 import os.log
 
+
 class RegionBigTableViewController: UITableViewController, UINavigationControllerDelegate {
 
     //MARK: Properties
     
     var result: [String: [String: [String]]] = [:]
-    var big = [String]()
-         
+    //var big = [String]()
+    let root = Node("")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,7 +55,7 @@ class RegionBigTableViewController: UITableViewController, UINavigationControlle
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return big.count
+        return root.children.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,9 +69,9 @@ class RegionBigTableViewController: UITableViewController, UINavigationControlle
         
         // Fetches the appropriate meal for the data source layout.
         
-        let region = big[indexPath.row]
+        let region = root.children[indexPath.row]
         
-        cell.timezoneTextLabel.text = region
+        cell.timezoneTextLabel.text = region.value
         cell.accessoryType = .disclosureIndicator
         
         return cell
@@ -79,21 +81,36 @@ class RegionBigTableViewController: UITableViewController, UINavigationControlle
     
     private func loadTimeZoneData() {
 
-        result = TimeZone.knownTimeZoneIdentifiers.reduce(into: [:]) {
-            if let index = $1.firstIndex(of: "/") {
-                let key = String($1[..<index])
-                let value = String($1[$1.index(after: index)...])
-                if let index = value.firstIndex(of: "/") {
-                    let country = String(value[..<index])
-                    let city = String(value[value.index(after: index)...])
-                    $0[key, default: [:]][country, default: []].append(city)
+        let ids = TimeZone.knownTimeZoneIdentifiers
+        for id in ids {
+            var node = root
+            let splits = id.split(separator: "/").map(String.init)
+            for split in splits {
+                if let child = node.children.first(where:{$0.value == split}) {
+                    node = child
                 } else {
-                    $0[key, default: [:]][value] = []
+                    let newnode = Node(split)
+                    node.add(newnode)
+                    node = newnode
                 }
             }
         }
         
-        big.append(contentsOf: result.keys.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending })
+//        result = TimeZone.knownTimeZoneIdentifiers.reduce(into: [:]) {
+//            if let index = $1.firstIndex(of: "/") {
+//                let key = String($1[..<index])
+//                let value = String($1[$1.index(after: index)...])
+//                if let index = value.firstIndex(of: "/") {
+//                    let country = String(value[..<index])
+//                    let city = String(value[value.index(after: index)...])
+//                    $0[key, default: [:]][country, default: []].append(city)
+//                } else {
+//                    $0[key, default: [:]][value] = []
+//                }
+//            }
+//        }
+//
+//        big.append(contentsOf: result.keys.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending })
     }
     
     
@@ -108,7 +125,7 @@ class RegionBigTableViewController: UITableViewController, UINavigationControlle
             
         case "SmallSegue":
             
-            guard let countryStateTableViewController = segue.destination as? RegionSmallTableViewController else {
+            guard let level2TableViewController = segue.destination as? Level2TableViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             
@@ -120,9 +137,9 @@ class RegionBigTableViewController: UITableViewController, UINavigationControlle
                 fatalError("The selected cell is not being displayed by the table")
             }
             
-            let selectedBig = big[indexPath.row]
+            let selectedBig = root.children[indexPath.row]
             //print("Selected big ", selectedBig)
-            countryStateTableViewController.selectedBig = selectedBig
+            level2TableViewController.selectedBig = selectedBig.value
             
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")

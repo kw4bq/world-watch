@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		9C569A4A249537E100A27C1E /* RegionBigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C569A49249537E100A27C1E /* RegionBigTableViewCell.swift */; };
-		9C569A4C24954C3000A27C1E /* RegionSmallTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C569A4B24954C3000A27C1E /* RegionSmallTableViewController.swift */; };
+		9C569A4C24954C3000A27C1E /* Level2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C569A4B24954C3000A27C1E /* Level2TableViewController.swift */; };
 		9C569A4E24954E0A00A27C1E /* RegionSmallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C569A4D24954E0A00A27C1E /* RegionSmallTableViewCell.swift */; };
 		9C569A50249591C300A27C1E /* RegionSmallAlternateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C569A4F249591C300A27C1E /* RegionSmallAlternateTableViewCell.swift */; };
 		9C569A5224959B2C00A27C1E /* RegionTinyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C569A5124959B2C00A27C1E /* RegionTinyTableViewCell.swift */; };
 		9C569A5424959B4500A27C1E /* RegionTinyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C569A5324959B4500A27C1E /* RegionTinyTableViewController.swift */; };
+		9CA6104D257065C9006767D7 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6104C257065C9006767D7 /* Node.swift */; };
 		9CF134DF2494485600B2786D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF134DE2494485600B2786D /* AppDelegate.swift */; };
 		9CF134E12494485600B2786D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF134E02494485600B2786D /* SceneDelegate.swift */; };
 		9CF134E32494485600B2786D /* WorldWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF134E22494485600B2786D /* WorldWatchViewController.swift */; };
@@ -27,11 +28,12 @@
 
 /* Begin PBXFileReference section */
 		9C569A49249537E100A27C1E /* RegionBigTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionBigTableViewCell.swift; sourceTree = "<group>"; };
-		9C569A4B24954C3000A27C1E /* RegionSmallTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSmallTableViewController.swift; sourceTree = "<group>"; };
+		9C569A4B24954C3000A27C1E /* Level2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level2TableViewController.swift; sourceTree = "<group>"; };
 		9C569A4D24954E0A00A27C1E /* RegionSmallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSmallTableViewCell.swift; sourceTree = "<group>"; };
 		9C569A4F249591C300A27C1E /* RegionSmallAlternateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSmallAlternateTableViewCell.swift; sourceTree = "<group>"; };
 		9C569A5124959B2C00A27C1E /* RegionTinyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionTinyTableViewCell.swift; sourceTree = "<group>"; };
 		9C569A5324959B4500A27C1E /* RegionTinyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionTinyTableViewController.swift; sourceTree = "<group>"; };
+		9CA6104C257065C9006767D7 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		9CF134DB2494485600B2786D /* WorldWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF134DE2494485600B2786D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CF134E02494485600B2786D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,7 +76,7 @@
 			children = (
 				9CF134F424944F4500B2786D /* WorldWatchTableViewController.swift */,
 				9CF134F82494A04100B2786D /* RegionBigTableViewController.swift */,
-				9C569A4B24954C3000A27C1E /* RegionSmallTableViewController.swift */,
+				9C569A4B24954C3000A27C1E /* Level2TableViewController.swift */,
 				9C569A5324959B4500A27C1E /* RegionTinyTableViewController.swift */,
 			);
 			path = TableViewControllers;
@@ -109,6 +111,7 @@
 				9CF134E72494485700B2786D /* Assets.xcassets */,
 				9CF134E92494485700B2786D /* LaunchScreen.storyboard */,
 				9CF134EC2494485700B2786D /* Info.plist */,
+				9CA6104C257065C9006767D7 /* Node.swift */,
 			);
 			path = WorldWatch;
 			sourceTree = "<group>";
@@ -186,7 +189,7 @@
 			files = (
 				9C569A50249591C300A27C1E /* RegionSmallAlternateTableViewCell.swift in Sources */,
 				9CF134F524944F4500B2786D /* WorldWatchTableViewController.swift in Sources */,
-				9C569A4C24954C3000A27C1E /* RegionSmallTableViewController.swift in Sources */,
+				9C569A4C24954C3000A27C1E /* Level2TableViewController.swift in Sources */,
 				9CF134F324944A1900B2786D /* WorldWatchTableViewCell.swift in Sources */,
 				9CF134F92494A04100B2786D /* RegionBigTableViewController.swift in Sources */,
 				9CF134E32494485600B2786D /* WorldWatchViewController.swift in Sources */,
@@ -197,6 +200,7 @@
 				9C569A5224959B2C00A27C1E /* RegionTinyTableViewCell.swift in Sources */,
 				9CF134F72494693600B2786D /* TZIdLocation.swift in Sources */,
 				9CF134E12494485600B2786D /* SceneDelegate.swift in Sources */,
+				9CA6104D257065C9006767D7 /* Node.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
