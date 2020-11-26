@@ -160,7 +160,7 @@ class RegionSmallTableViewController: UITableViewController, UINavigationControl
             }
             
             let selectedSmall = small[indexPath.row]
-            print(selectedSmall)
+            //print(selectedSmall)
             tinyTableViewController.selectedSmall = selectedSmall
             
         default:
