@@ -16,7 +16,7 @@
 		9CA6104D257065C9006767D7 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6104C257065C9006767D7 /* Node.swift */; };
 		9CF134DF2494485600B2786D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF134DE2494485600B2786D /* AppDelegate.swift */; };
 		9CF134E12494485600B2786D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF134E02494485600B2786D /* SceneDelegate.swift */; };
-		9CF134E32494485600B2786D /* WorldWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF134E22494485600B2786D /* WorldWatchViewController.swift */; };
+		9CF134E32494485600B2786D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF134E22494485600B2786D /* DetailViewController.swift */; };
 		9CF134E62494485600B2786D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CF134E42494485600B2786D /* Main.storyboard */; };
 		9CF134E82494485700B2786D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CF134E72494485700B2786D /* Assets.xcassets */; };
 		9CF134EB2494485700B2786D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CF134E92494485700B2786D /* LaunchScreen.storyboard */; };
@@ -37,7 +37,7 @@
 		9CF134DB2494485600B2786D /* WorldWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF134DE2494485600B2786D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CF134E02494485600B2786D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9CF134E22494485600B2786D /* WorldWatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldWatchViewController.swift; sourceTree = "<group>"; };
+		9CF134E22494485600B2786D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9CF134E52494485600B2786D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9CF134E72494485700B2786D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CF134EA2494485700B2786D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 				9CF134DE2494485600B2786D /* AppDelegate.swift */,
 				9CF134E02494485600B2786D /* SceneDelegate.swift */,
 				9CF134F62494693600B2786D /* TZIdLocation.swift */,
-				9CF134E22494485600B2786D /* WorldWatchViewController.swift */,
+				9CF134E22494485600B2786D /* DetailViewController.swift */,
 				9C6EEF4524969B3D00B7AD99 /* TableViewControllers */,
 				9C6EEF4424969B2900B7AD99 /* TableViewCells */,
 				9CF134E42494485600B2786D /* Main.storyboard */,
@@ -192,7 +192,7 @@
 				9C569A4C24954C3000A27C1E /* Level2TableViewController.swift in Sources */,
 				9CF134F324944A1900B2786D /* WorldWatchTableViewCell.swift in Sources */,
 				9CF134F92494A04100B2786D /* Level1TableViewController.swift in Sources */,
-				9CF134E32494485600B2786D /* WorldWatchViewController.swift in Sources */,
+				9CF134E32494485600B2786D /* DetailViewController.swift in Sources */,
 				9C569A4A249537E100A27C1E /* Level1TableViewCell.swift in Sources */,
 				9C569A4E24954E0A00A27C1E /* Level2TableViewCell.swift in Sources */,
 				9C569A5424959B4500A27C1E /* Level3TableViewController.swift in Sources */,

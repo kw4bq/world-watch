@@ -341,7 +341,7 @@ class WorldWatchTableViewController: UITableViewController {
         
         case "ShowDetail":
             
-            guard let regionDetailViewController = segue.destination as? WorldWatchViewController else {
+            guard let regionDetailViewController = segue.destination as? DetailViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             
@@ -370,7 +370,7 @@ class WorldWatchTableViewController: UITableViewController {
     
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         
-        if let sourceViewController = sender.source as? WorldWatchViewController, let location = sourceViewController.location {
+        if let sourceViewController = sender.source as? DetailViewController, let location = sourceViewController.location {
 
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update

@@ -10,7 +10,7 @@ import UIKit
 import os.log
 
 
-class WorldWatchViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
+class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
     
     //MARK: Actions
     
