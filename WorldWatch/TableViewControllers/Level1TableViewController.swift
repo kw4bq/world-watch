@@ -137,9 +137,11 @@ class Level1TableViewController: UITableViewController, UINavigationControllerDe
                 fatalError("The selected cell is not being displayed by the table")
             }
             
-            let selectedBig = root.children[indexPath.row]
+            //let selectedBig = root.children[indexPath.row]
             //print("Selected big ", selectedBig)
-            level2TableViewController.selectedBig = selectedBig.value
+            level2TableViewController.selectedL1IndexPath = indexPath
+            //level2TableViewController.selectedBig = selectedBig.value
+            level2TableViewController.nodes = root
             
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")

@@ -15,9 +15,11 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
 
     var result: [String: [String: [String]]] = [:]
     var selectedBig: String = ""
-    var small = [String]()
-    var smallRegions = [TZIdLocation]()
+    var selectedL1IndexPath: IndexPath?
+    //var small = [String]()
+    //var smallRegions = [TZIdLocation]()
     var location: TZIdLocation?
+    var nodes: Node<String>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,7 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return smallRegions.count
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,10 +47,10 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
         
         if small.timezone == "-------" {
             
-            let cellIdentifier = "SmallAlternateTableViewCell"
+            let cellIdentifier = "Level2AltTableViewCell"
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? Level2AltTableViewCell  else {
-                fatalError("The dequeued cell is not an instance of CityNestedTableViewCell.")
+                fatalError("The dequeued cell is not an instance of Level2AltTableViewCell.")
             }
             
             // Fetches the appropriate location for the data source layout.
@@ -58,10 +60,10 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
             return cell
         } else {
             
-            let cellIdentifier = "SmallTableViewCell"
+            let cellIdentifier = "Level2TableViewCell"
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? Level2TableViewCell  else {
-                fatalError("The dequeued cell is not an instance of CountryStateTableViewCell.")
+                fatalError("The dequeued cell is not an instance of Level2TableViewCell.")
             }
             
             // Fetches the appropriate location for the data source layout.
@@ -85,38 +87,39 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
     
     private func loadTimeZoneData(big: String) {
 
-        result = TimeZone.knownTimeZoneIdentifiers.reduce(into: [:]) {
-            if let index = $1.firstIndex(of: "/") {
-                let key = String($1[..<index])
-                let value = String($1[$1.index(after: index)...])
-                if let index = value.firstIndex(of: "/") {
-                    let country = String(value[..<index])
-                    let city = String(value[value.index(after: index)...])
-                    $0[key, default: [:]][country, default: []].append(city)
-                } else {
-                    $0[key, default: [:]][value] = []
-                }
-            }
-        }
         
-        small.append(contentsOf: result[big]!.keys.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending })
-        
-        for city in small {
-            let search = zoneForName(searchString: city)
-            //print("Searching zone for name", city, search[0])
-            if search.count == 1 {
-                guard let location = TZIdLocation(city: city, timezone: search[0]) else {
-                    fatalError("Unable to instantiate location")
-                }
-                smallRegions += [location]
-            } else {
-                //print("Setting TZ to nil for", city)
-                guard let location = TZIdLocation(city: city, timezone: "-------") else {
-                    fatalError("Unable to instantiate location")
-                }
-                smallRegions += [location]
-            }
-        }
+//        result = TimeZone.knownTimeZoneIdentifiers.reduce(into: [:]) {
+//            if let index = $1.firstIndex(of: "/") {
+//                let key = String($1[..<index])
+//                let value = String($1[$1.index(after: index)...])
+//                if let index = value.firstIndex(of: "/") {
+//                    let country = String(value[..<index])
+//                    let city = String(value[value.index(after: index)...])
+//                    $0[key, default: [:]][country, default: []].append(city)
+//                } else {
+//                    $0[key, default: [:]][value] = []
+//                }
+//            }
+//        }
+//
+//        small.append(contentsOf: result[big]!.keys.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending })
+//
+//        for city in small {
+//            let search = zoneForName(searchString: city)
+//            //print("Searching zone for name", city, search[0])
+//            if search.count == 1 {
+//                guard let location = TZIdLocation(city: city, timezone: search[0]) else {
+//                    fatalError("Unable to instantiate location")
+//                }
+//                smallRegions += [location]
+//            } else {
+//                //print("Setting TZ to nil for", city)
+//                guard let location = TZIdLocation(city: city, timezone: "-------") else {
+//                    fatalError("Unable to instantiate location")
+//                }
+//                smallRegions += [location]
+//            }
+//        }
         
     }
     
