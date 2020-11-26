@@ -395,7 +395,7 @@ class WorldWatchTableViewController: UITableViewController {
             
             saveLocations()
             
-        } else if let sourceViewController = sender.source as? RegionTinyTableViewController, let location = sourceViewController.location {
+        } else if let sourceViewController = sender.source as? Level3TableViewController, let location = sourceViewController.location {
 
             let newIndexPath = IndexPath(row: locations.count, section: 0)
             

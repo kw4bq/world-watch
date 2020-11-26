@@ -27,7 +27,7 @@ extension Dictionary {
     }
 }
 
-class RegionTinyTableViewController: UITableViewController, UINavigationControllerDelegate {
+class Level3TableViewController: UITableViewController, UINavigationControllerDelegate {
 
     
     var result: [String: [String: [String]]] = [:]
