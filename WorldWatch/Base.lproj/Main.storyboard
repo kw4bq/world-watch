@@ -259,7 +259,7 @@
         <!--Region-->
         <scene sceneID="h5y-LB-YJf">
             <objects>
-                <tableViewController id="qU5-Ht-Fax" customClass="RegionBigTableViewController" customModule="WorldWatch" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="qU5-Ht-Fax" customClass="Level1TableViewController" customModule="WorldWatch" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="62" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="R3q-av-Qmi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

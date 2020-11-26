@@ -23,7 +23,7 @@
 		9CF134F324944A1900B2786D /* WorldWatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF134F224944A1900B2786D /* WorldWatchTableViewCell.swift */; };
 		9CF134F524944F4500B2786D /* WorldWatchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF134F424944F4500B2786D /* WorldWatchTableViewController.swift */; };
 		9CF134F72494693600B2786D /* TZIdLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF134F62494693600B2786D /* TZIdLocation.swift */; };
-		9CF134F92494A04100B2786D /* RegionBigTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF134F82494A04100B2786D /* RegionBigTableViewController.swift */; };
+		9CF134F92494A04100B2786D /* Level1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF134F82494A04100B2786D /* Level1TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +45,7 @@
 		9CF134F224944A1900B2786D /* WorldWatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldWatchTableViewCell.swift; sourceTree = "<group>"; };
 		9CF134F424944F4500B2786D /* WorldWatchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldWatchTableViewController.swift; sourceTree = "<group>"; };
 		9CF134F62494693600B2786D /* TZIdLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TZIdLocation.swift; sourceTree = "<group>"; };
-		9CF134F82494A04100B2786D /* RegionBigTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionBigTableViewController.swift; sourceTree = "<group>"; };
+		9CF134F82494A04100B2786D /* Level1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level1TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				9CF134F424944F4500B2786D /* WorldWatchTableViewController.swift */,
-				9CF134F82494A04100B2786D /* RegionBigTableViewController.swift */,
+				9CF134F82494A04100B2786D /* Level1TableViewController.swift */,
 				9C569A4B24954C3000A27C1E /* Level2TableViewController.swift */,
 				9C569A5324959B4500A27C1E /* RegionTinyTableViewController.swift */,
 			);
@@ -191,7 +191,7 @@
 				9CF134F524944F4500B2786D /* WorldWatchTableViewController.swift in Sources */,
 				9C569A4C24954C3000A27C1E /* Level2TableViewController.swift in Sources */,
 				9CF134F324944A1900B2786D /* WorldWatchTableViewCell.swift in Sources */,
-				9CF134F92494A04100B2786D /* RegionBigTableViewController.swift in Sources */,
+				9CF134F92494A04100B2786D /* Level1TableViewController.swift in Sources */,
 				9CF134E32494485600B2786D /* WorldWatchViewController.swift in Sources */,
 				9C569A4A249537E100A27C1E /* RegionBigTableViewCell.swift in Sources */,
 				9C569A4E24954E0A00A27C1E /* RegionSmallTableViewCell.swift in Sources */,
