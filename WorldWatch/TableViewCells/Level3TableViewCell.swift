@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegionTinyTableViewCell: UITableViewCell {
+class Level3TableViewCell: UITableViewCell {
 
     @IBOutlet weak var tinyLabel: UILabel!
     @IBOutlet weak var tinyTzIdLabel: UILabel!

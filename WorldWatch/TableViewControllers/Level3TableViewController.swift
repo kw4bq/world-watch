@@ -58,7 +58,7 @@ class Level3TableViewController: UITableViewController, UINavigationControllerDe
 
         let cellIdentifier = "TinyTableViewCell"
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RegionTinyTableViewCell  else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? Level3TableViewCell  else {
             fatalError("The dequeued cell is not an instance of TinyTableViewCell.")
         }
         
@@ -83,7 +83,7 @@ class Level3TableViewController: UITableViewController, UINavigationControllerDe
           
         case "UnwindTinyToMeal":
             
-            guard let selectedTinyCell = sender as? RegionTinyTableViewCell else {
+            guard let selectedTinyCell = sender as? Level3TableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
             

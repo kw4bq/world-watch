@@ -63,7 +63,7 @@ class Level1TableViewController: UITableViewController, UINavigationControllerDe
         
         let cellIdentifier = "BigTableViewCell"
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RegionBigTableViewCell  else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? Level1TableViewCell  else {
             fatalError("The dequeued cell is not an instance of RegionBigTableViewCell.")
         }
         
@@ -129,7 +129,7 @@ class Level1TableViewController: UITableViewController, UINavigationControllerDe
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             
-            guard let selectedBigCell = sender as? RegionBigTableViewCell else {
+            guard let selectedBigCell = sender as? Level1TableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
             

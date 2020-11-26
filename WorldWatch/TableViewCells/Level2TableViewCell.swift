@@ -1,5 +1,5 @@
 //
-//  TimeZoneTableViewCell.swift
+//  CountryStateTableViewCell.swift
 //  test3
 //
 //  Created by emery on 6/13/20.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class RegionBigTableViewCell: UITableViewCell {
+class Level2TableViewCell: UITableViewCell {
 
-    @IBOutlet weak var timezoneTextLabel: UILabel!
-    @IBOutlet weak var timezoneIdLabel: UILabel!
+    @IBOutlet weak var smallTextLabel: UILabel!
+    @IBOutlet weak var timeZoneIdTextLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
