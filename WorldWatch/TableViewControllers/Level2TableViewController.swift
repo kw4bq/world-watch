@@ -47,7 +47,7 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
             
             let cellIdentifier = "SmallAlternateTableViewCell"
             
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RegionSmallAlternateTableViewCell  else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? Level2AltTableViewCell  else {
                 fatalError("The dequeued cell is not an instance of CityNestedTableViewCell.")
             }
             
@@ -60,7 +60,7 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
             
             let cellIdentifier = "SmallTableViewCell"
             
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RegionSmallTableViewCell  else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? Level2TableViewCell  else {
                 fatalError("The dequeued cell is not an instance of CountryStateTableViewCell.")
             }
             
@@ -131,7 +131,7 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
           
         case "UnwindSmallToMeal":
             
-            guard let selectedSmallCell = sender as? RegionSmallTableViewCell else {
+            guard let selectedSmallCell = sender as? Level3TableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
             
@@ -147,11 +147,11 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
             
         case "TinySegue":
             
-            guard let tinyTableViewController = segue.destination as? RegionTinyTableViewController else {
+            guard let tinyTableViewController = segue.destination as? Level3TableViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             
-            guard let selectedTinyCell = sender as? RegionSmallAlternateTableViewCell else {
+            guard let selectedTinyCell = sender as? Level2AltTableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
             
