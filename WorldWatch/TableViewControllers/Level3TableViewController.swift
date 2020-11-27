@@ -56,10 +56,10 @@ class Level3TableViewController: UITableViewController, UINavigationControllerDe
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier.
 
-        let cellIdentifier = "TinyTableViewCell"
+        let cellIdentifier = "Level3TableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? Level3TableViewCell  else {
-            fatalError("The dequeued cell is not an instance of TinyTableViewCell.")
+            fatalError("The dequeued cell is not an instance of Level3TableViewCell.")
         }
         
         let tinystate = tinyLocations[indexPath.row]

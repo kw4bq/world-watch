@@ -102,16 +102,16 @@
 			isa = PBXGroup;
 			children = (
 				9CF134DE2494485600B2786D /* AppDelegate.swift */,
+				9CF134E22494485600B2786D /* DetailViewController.swift */,
+				9CA6104C257065C9006767D7 /* Node.swift */,
 				9CF134E02494485600B2786D /* SceneDelegate.swift */,
 				9CF134F62494693600B2786D /* TZIdLocation.swift */,
-				9CF134E22494485600B2786D /* DetailViewController.swift */,
 				9C6EEF4524969B3D00B7AD99 /* TableViewControllers */,
 				9C6EEF4424969B2900B7AD99 /* TableViewCells */,
 				9CF134E42494485600B2786D /* Main.storyboard */,
 				9CF134E72494485700B2786D /* Assets.xcassets */,
 				9CF134E92494485700B2786D /* LaunchScreen.storyboard */,
 				9CF134EC2494485700B2786D /* Info.plist */,
-				9CA6104C257065C9006767D7 /* Node.swift */,
 			);
 			path = WorldWatch;
 			sourceTree = "<group>";

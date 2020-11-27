@@ -61,10 +61,10 @@ class Level1TableViewController: UITableViewController, UINavigationControllerDe
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier.
         
-        let cellIdentifier = "BigTableViewCell"
+        let cellIdentifier = "Level1TableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? Level1TableViewCell  else {
-            fatalError("The dequeued cell is not an instance of RegionBigTableViewCell.")
+            fatalError("The dequeued cell is not an instance of Level1TableViewCell.")
         }
         
         // Fetches the appropriate meal for the data source layout.
@@ -141,7 +141,7 @@ class Level1TableViewController: UITableViewController, UINavigationControllerDe
             //print("Selected big ", selectedBig)
             level2TableViewController.selectedL1IndexPath = indexPath
             //level2TableViewController.selectedBig = selectedBig.value
-            level2TableViewController.nodes = root
+            level2TableViewController.root = root
             
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")

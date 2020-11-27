@@ -19,7 +19,8 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
     //var small = [String]()
     //var smallRegions = [TZIdLocation]()
     var location: TZIdLocation?
-    var nodes: Node<String>?
+    var root: Node<String>?
+    //var level2children: Node<String>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,8 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
         // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
 
-        loadTimeZoneData(big: selectedBig)
+        //level2children = root!.children[selectedL1IndexPath!.row].children
+        //loadTimeZoneData(selected: selectedBig)
     }
 
     // MARK: - Table view data source
@@ -37,15 +39,16 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return root!.children[selectedL1IndexPath!.row].children.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier.
         
-        let small = smallRegions[indexPath.row]
+        let l2node = root!.children[selectedL1IndexPath!.row].children[indexPath.row]
+        let l2childHasChildren: Bool = l2node.children.count > 0
         
-        if small.timezone == "-------" {
+        if l2childHasChildren {
             
             let cellIdentifier = "Level2AltTableViewCell"
             
@@ -54,7 +57,7 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
             }
             
             // Fetches the appropriate location for the data source layout.
-            cell.cityNestedTextLabel.text = small.city
+            cell.cityNestedTextLabel.text = l2node.value
             cell.accessoryType = .disclosureIndicator
             
             return cell
@@ -67,8 +70,8 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
             }
             
             // Fetches the appropriate location for the data source layout.
-            cell.smallTextLabel.text = small.city
-            cell.timeZoneIdTextLabel.text = small.getShortName()
+            cell.smallTextLabel.text = l2node.value
+            //cell.timeZoneIdTextLabel.text = small.getShortName()
             
             return cell
         }
@@ -85,7 +88,7 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
         })
     }
     
-    private func loadTimeZoneData(big: String) {
+    private func loadTimeZoneData(selected: String) {
 
         
 //        result = TimeZone.knownTimeZoneIdentifiers.reduce(into: [:]) {
@@ -126,7 +129,6 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
@@ -142,11 +144,11 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
                 fatalError("The selected cell is not being displayed by the table")
             }
             
-            let selectedSmall = smallRegions[indexPath.row]
+            //let selectedSmall = smallRegions[indexPath.row]
             
             //print("Selected small", selectedSmall.city, selectedSmall.timezone)
 
-            location = TZIdLocation(city: selectedSmall.city, timezone: selectedSmall.timezone)
+            //location = TZIdLocation(city: selectedSmall.city, timezone: selectedSmall.timezone)
             
         case "TinySegue":
             
@@ -162,9 +164,9 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
                 fatalError("The selected cell is not being displayed by the table")
             }
             
-            let selectedSmall = small[indexPath.row]
+            //let selectedSmall = small[indexPath.row]
             //print(selectedSmall)
-            tinyTableViewController.selectedSmall = selectedSmall
+            //tinyTableViewController.selectedSmall = selectedSmall
             
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
