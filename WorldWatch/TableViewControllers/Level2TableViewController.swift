@@ -43,7 +43,6 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Table view cells are reused and should be dequeued using a cell identifier.
         
         let l2node = root!.children[selectedL1IndexPath!.row].children[indexPath.row]
         let l2childHasChildren: Bool = l2node.children.count > 0
@@ -134,13 +133,13 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
         
         switch(segue.identifier ?? "") {
           
-        case "UnwindSmallToMeal":
+        case "UnwindLevel2ToHome":
             
-            guard let selectedSmallCell = sender as? Level3TableViewCell else {
+            guard let selectedLevel2Cell = sender as? Level3TableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
             
-            guard let indexPath = tableView.indexPath(for: selectedSmallCell) else {
+            guard let indexPath = tableView.indexPath(for: selectedLevel2Cell) else {
                 fatalError("The selected cell is not being displayed by the table")
             }
             
@@ -150,20 +149,23 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
 
             //location = TZIdLocation(city: selectedSmall.city, timezone: selectedSmall.timezone)
             
-        case "TinySegue":
+        case "Level3Segue":
             
-            guard let tinyTableViewController = segue.destination as? Level3TableViewController else {
+            guard let level3TableViewController = segue.destination as? Level3TableViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             
-            guard let selectedTinyCell = sender as? Level2AltTableViewCell else {
+            guard let selectedLevel2Cell = sender as? Level2AltTableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
             
-            guard let indexPath = tableView.indexPath(for: selectedTinyCell) else {
+            guard let indexPath = tableView.indexPath(for: selectedLevel2Cell) else {
                 fatalError("The selected cell is not being displayed by the table")
             }
             
+            level3TableViewController.selectedL1IndexPath = selectedL1IndexPath
+            level3TableViewController.selectedL2IndexPath = indexPath
+            level3TableViewController.root = root
             //let selectedSmall = small[indexPath.row]
             //print(selectedSmall)
             //tinyTableViewController.selectedSmall = selectedSmall

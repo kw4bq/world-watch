@@ -288,7 +288,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="timezoneTextLabel" destination="dbR-b9-5pA" id="1zz-fb-plE"/>
-                                    <segue destination="Vp5-Md-DgY" kind="show" identifier="SmallSegue" id="2S3-D3-kx5"/>
+                                    <segue destination="Vp5-Md-DgY" kind="show" identifier="Level2Segue" id="2S3-D3-kx5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -349,7 +349,7 @@
                                 <connections>
                                     <outlet property="smallTextLabel" destination="3Be-FW-6Vo" id="Sjf-lx-DAv"/>
                                     <outlet property="timeZoneIdTextLabel" destination="9bM-uQ-Uoo" id="zgX-de-r18"/>
-                                    <segue destination="7Km-gq-NWh" kind="unwind" identifier="UnwindSmallToMeal" unwindAction="unwindToMealListWithSender:" id="exe-6F-LJf"/>
+                                    <segue destination="7Km-gq-NWh" kind="unwind" identifier="UnwindLevel2ToHome" unwindAction="unwindToMealListWithSender:" id="exe-6F-LJf"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Level2AltTableViewCell" rowHeight="62" id="VJK-o3-iss" customClass="Level2AltTableViewCell" customModule="WorldWatch" customModuleProvider="target">
@@ -374,7 +374,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cityNestedTextLabel" destination="0uH-cC-1kk" id="eNi-X3-B9b"/>
-                                    <segue destination="WKI-EJ-ogV" kind="show" identifier="TinySegue" id="s1C-lY-PKW"/>
+                                    <segue destination="WKI-EJ-ogV" kind="show" identifier="Level3Segue" id="s1C-lY-PKW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -430,7 +430,7 @@
                                 <connections>
                                     <outlet property="tinyLabel" destination="o5o-OE-rIS" id="PAk-JQ-B26"/>
                                     <outlet property="tinyTzIdLabel" destination="Cae-MK-Q6d" id="o5J-f8-kjK"/>
-                                    <segue destination="hwF-bB-OlY" kind="unwind" identifier="UnwindTinyToMeal" unwindAction="unwindToMealListWithSender:" id="vjh-h9-Tm8"/>
+                                    <segue destination="hwF-bB-OlY" kind="unwind" identifier="UnwindLevel3ToHome" unwindAction="unwindToHomeWithSender:" id="vjh-h9-Tm8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

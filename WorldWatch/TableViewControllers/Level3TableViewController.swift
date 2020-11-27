@@ -31,16 +31,18 @@ class Level3TableViewController: UITableViewController, UINavigationControllerDe
 
     
     var result: [String: [String: [String]]] = [:]
-    var selectedSmall: String = ""
-    var tiny = [String]()
-    var tinyLocations = [TZIdLocation]()
+    //var selectedSmall: String = ""
+    //var tiny = [String]()
+    //var tinyLocations = [TZIdLocation]()
     var location: TZIdLocation?
-    
+    var selectedL1IndexPath: IndexPath?
+    var selectedL2IndexPath: IndexPath?
+    var root: Node<String>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadTimeZoneData(small: selectedSmall)
+        //loadTimeZoneData(small: selectedSmall)
     }
 
     // MARK: - Table view data source
@@ -50,23 +52,25 @@ class Level3TableViewController: UITableViewController, UINavigationControllerDe
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tinyLocations.count
+        return root!.children[selectedL1IndexPath!.row].children[selectedL2IndexPath!.row].children.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier.
 
+        let l3node = root!.children[selectedL1IndexPath!.row].children[selectedL2IndexPath!.row].children[indexPath.row]
+        
         let cellIdentifier = "Level3TableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? Level3TableViewCell  else {
             fatalError("The dequeued cell is not an instance of Level3TableViewCell.")
         }
         
-        let tinystate = tinyLocations[indexPath.row]
+        //let tinystate = tinyLocations[indexPath.row]
 
         // Fetches the appropriate location for the data source layout.
-        cell.tinyLabel.text = tinystate.city
-        cell.tinyTzIdLabel.text = tinystate.getShortName()
+        cell.tinyLabel.text = l3node.value
+        //cell.tinyTzIdLabel.text = tinystate.getShortName()
         
         return cell
             
@@ -81,7 +85,7 @@ class Level3TableViewController: UITableViewController, UINavigationControllerDe
         
         switch(segue.identifier ?? "") {
           
-        case "UnwindTinyToMeal":
+        case "UnwindLevel3ToHome":
             
             guard let selectedTinyCell = sender as? Level3TableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
@@ -91,14 +95,14 @@ class Level3TableViewController: UITableViewController, UINavigationControllerDe
                 fatalError("The selected cell is not being displayed by the table")
             }
             
-            let selectedTiny = tinyLocations[indexPath.row]
+            //let selectedTiny = tinyLocations[indexPath.row]
             //print(selectedTiny)
             
-            let city = selectedTinyCell.tinyLabel.text ?? ""
-            let tzlabel = selectedTinyCell.tinyTzIdLabel.text ?? ""
+            //let city = selectedTinyCell.tinyLabel.text ?? ""
+            //let tzlabel = selectedTinyCell.tinyTzIdLabel.text ?? ""
             
             // Set the location to be passed to WorldWatchTableViewController after the unwind segue.
-            location = TZIdLocation(city: city, timezone: tzlabel)
+            //location = TZIdLocation(city: city, timezone: tzlabel)
             
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
@@ -134,18 +138,18 @@ class Level3TableViewController: UITableViewController, UINavigationControllerDe
             }
         }
         
-        let tinies: [String] = result.search(key: small) as! [String]
+        //let tinies: [String] = result.search(key: small) as! [String]
         //print("tinies", tinies)
-        tiny.append(contentsOf: tinies)
-        
-        for city in tiny {
-            let search = zoneForName(searchString: city)
-                        
-            guard let location = TZIdLocation(city: city, timezone: search[0]) else {
-                fatalError("Unable to instantiate location")
-            }
-            tinyLocations += [location]
-        }
+//        tiny.append(contentsOf: tinies)
+//
+//        for city in tiny {
+//            let search = zoneForName(searchString: city)
+//
+//            guard let location = TZIdLocation(city: city, timezone: search[0]) else {
+//                fatalError("Unable to instantiate location")
+//            }
+//            tinyLocations += [location]
+//        }
         
     }
 }

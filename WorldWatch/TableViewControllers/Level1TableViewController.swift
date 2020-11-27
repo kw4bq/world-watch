@@ -123,7 +123,7 @@ class Level1TableViewController: UITableViewController, UINavigationControllerDe
         
         switch(segue.identifier ?? "") {
             
-        case "SmallSegue":
+        case "Level2Segue":
             
             guard let level2TableViewController = segue.destination as? Level2TableViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
