@@ -135,7 +135,7 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
           
         case "UnwindLevel2ToHome":
             
-            guard let selectedLevel2Cell = sender as? Level3TableViewCell else {
+            guard let selectedLevel2Cell = sender as? Level2TableViewCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
             
