@@ -80,7 +80,7 @@ class Level1TableViewController: UITableViewController, UINavigationControllerDe
             }
                                 
             cell.smallTextLabel.text = l1node.value
-            cell.timeZoneIdTextLabel.text = "GMT+0"
+            cell.timeZoneIdTextLabel.text = l1node.localized()
             
             return cell
             

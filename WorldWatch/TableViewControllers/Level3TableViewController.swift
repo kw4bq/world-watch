@@ -9,28 +9,28 @@
 import UIKit
 import os.log
 
-extension Dictionary {
-    func search(key:String, in dict:[String:Any] = [:]) -> Any? {
-        guard var currDict = self as? [String : Any]  else { return nil }
-        currDict = !dict.isEmpty ? dict : currDict
-
-        if let foundValue = currDict[key] {
-            return foundValue
-        } else {
-            for val in currDict.values {
-                if let innerDict = val as? [String:Any], let result = search(key: key, in: innerDict) {
-                    return result
-                }
-            }
-            return nil
-        }
-    }
-}
+//extension Dictionary {
+//    func search(key:String, in dict:[String:Any] = [:]) -> Any? {
+//        guard var currDict = self as? [String : Any]  else { return nil }
+//        currDict = !dict.isEmpty ? dict : currDict
+//
+//        if let foundValue = currDict[key] {
+//            return foundValue
+//        } else {
+//            for val in currDict.values {
+//                if let innerDict = val as? [String:Any], let result = search(key: key, in: innerDict) {
+//                    return result
+//                }
+//            }
+//            return nil
+//        }
+//    }
+//}
 
 class Level3TableViewController: UITableViewController, UINavigationControllerDelegate {
 
     
-    var result: [String: [String: [String]]] = [:]
+    //var result: [String: [String: [String]]] = [:]
     //var selectedSmall: String = ""
     //var tiny = [String]()
     //var tinyLocations = [TZIdLocation]()
@@ -56,7 +56,6 @@ class Level3TableViewController: UITableViewController, UINavigationControllerDe
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Table view cells are reused and should be dequeued using a cell identifier.
 
         let l3node = root!.children[selectedL1IndexPath!.row].children[selectedL2IndexPath!.row].children[indexPath.row]
         
@@ -66,11 +65,8 @@ class Level3TableViewController: UITableViewController, UINavigationControllerDe
             fatalError("The dequeued cell is not an instance of Level3TableViewCell.")
         }
         
-        //let tinystate = tinyLocations[indexPath.row]
-
-        // Fetches the appropriate location for the data source layout.
         cell.tinyLabel.text = l3node.value
-        //cell.tinyTzIdLabel.text = tinystate.getShortName()
+        cell.tinyTzIdLabel.text = l3node.localized()
         
         return cell
             
@@ -79,7 +75,6 @@ class Level3TableViewController: UITableViewController, UINavigationControllerDe
 
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
@@ -124,19 +119,19 @@ class Level3TableViewController: UITableViewController, UINavigationControllerDe
     
     private func loadTimeZoneData(small: String) {
 
-        result = TimeZone.knownTimeZoneIdentifiers.reduce(into: [:]) {
-            if let index = $1.firstIndex(of: "/") {
-                let key = String($1[..<index])
-                let value = String($1[$1.index(after: index)...])
-                if let index = value.firstIndex(of: "/") {
-                    let country = String(value[..<index])
-                    let city = String(value[value.index(after: index)...])
-                    $0[key, default: [:]][country, default: []].append(city)
-                } else {
-                    $0[key, default: [:]][value] = []
-                }
-            }
-        }
+//        result = TimeZone.knownTimeZoneIdentifiers.reduce(into: [:]) {
+//            if let index = $1.firstIndex(of: "/") {
+//                let key = String($1[..<index])
+//                let value = String($1[$1.index(after: index)...])
+//                if let index = value.firstIndex(of: "/") {
+//                    let country = String(value[..<index])
+//                    let city = String(value[value.index(after: index)...])
+//                    $0[key, default: [:]][country, default: []].append(city)
+//                } else {
+//                    $0[key, default: [:]][value] = []
+//                }
+//            }
+//        }
         
         //let tinies: [String] = result.search(key: small) as! [String]
         //print("tinies", tinies)

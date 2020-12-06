@@ -59,7 +59,7 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
             }
             
             cell.smallTextLabel.text = l2node.value
-            //cell.timeZoneIdTextLabel.text = small.getShortName()
+            cell.timeZoneIdTextLabel.text = l2node.localized()
             
             return cell
         }
