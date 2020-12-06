@@ -12,24 +12,16 @@ import os.log
 class Level2TableViewController: UITableViewController, UINavigationControllerDelegate {
 
     //MARK: Properties
-
-    var result: [String: [String: [String]]] = [:]
-    var selectedBig: String = ""
+    
     var selectedL1IndexPath: IndexPath?
-    //var small = [String]()
-    //var smallRegions = [TZIdLocation]()
     var location: TZIdLocation?
     var root: Node<String>?
-    //var level2children: Node<String>?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
-
-        //level2children = root!.children[selectedL1IndexPath!.row].children
-        //loadTimeZoneData(selected: selectedBig)
     }
 
     // MARK: - Table view data source
@@ -55,7 +47,6 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
                 fatalError("The dequeued cell is not an instance of Level2AltTableViewCell.")
             }
             
-            // Fetches the appropriate location for the data source layout.
             cell.cityNestedTextLabel.text = l2node.value
             cell.accessoryType = .disclosureIndicator
             
@@ -68,7 +59,6 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
                 fatalError("The dequeued cell is not an instance of Level2TableViewCell.")
             }
             
-            // Fetches the appropriate location for the data source layout.
             cell.smallTextLabel.text = l2node.value
             //cell.timeZoneIdTextLabel.text = small.getShortName()
             
@@ -85,44 +75,6 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
             let stringMatch = item.lowercased().range(of: searchString.lowercased())
             return stringMatch != nil ? true : false
         })
-    }
-    
-    private func loadTimeZoneData(selected: String) {
-
-        
-//        result = TimeZone.knownTimeZoneIdentifiers.reduce(into: [:]) {
-//            if let index = $1.firstIndex(of: "/") {
-//                let key = String($1[..<index])
-//                let value = String($1[$1.index(after: index)...])
-//                if let index = value.firstIndex(of: "/") {
-//                    let country = String(value[..<index])
-//                    let city = String(value[value.index(after: index)...])
-//                    $0[key, default: [:]][country, default: []].append(city)
-//                } else {
-//                    $0[key, default: [:]][value] = []
-//                }
-//            }
-//        }
-//
-//        small.append(contentsOf: result[big]!.keys.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending })
-//
-//        for city in small {
-//            let search = zoneForName(searchString: city)
-//            //print("Searching zone for name", city, search[0])
-//            if search.count == 1 {
-//                guard let location = TZIdLocation(city: city, timezone: search[0]) else {
-//                    fatalError("Unable to instantiate location")
-//                }
-//                smallRegions += [location]
-//            } else {
-//                //print("Setting TZ to nil for", city)
-//                guard let location = TZIdLocation(city: city, timezone: "-------") else {
-//                    fatalError("Unable to instantiate location")
-//                }
-//                smallRegions += [location]
-//            }
-//        }
-        
     }
     
     
@@ -166,9 +118,6 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
             level3TableViewController.selectedL1IndexPath = selectedL1IndexPath
             level3TableViewController.selectedL2IndexPath = indexPath
             level3TableViewController.root = root
-            //let selectedSmall = small[indexPath.row]
-            //print(selectedSmall)
-            //tinyTableViewController.selectedSmall = selectedSmall
             
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
