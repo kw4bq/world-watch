@@ -20,6 +20,13 @@ class Node<T> {
         children.append(node)
         node.parent = self
     }
+    func desc(_ s:String? = nil) -> String {
+        var me = String(describing:self.value)
+        if let prev = s {
+            me += "/" + prev
+        }
+        return self.parent?.desc(me) ?? me
+    }
 }
 
 extension Node: CustomStringConvertible {
