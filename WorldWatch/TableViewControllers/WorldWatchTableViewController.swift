@@ -10,7 +10,10 @@ import UIKit
 import os.log
 
 
+
+
 class WorldWatchTableViewController: UITableViewController {
+    
     
     //MARK: Properties
      
@@ -40,6 +43,10 @@ class WorldWatchTableViewController: UITableViewController {
             loadSampleLocations()
         }
         sortLocations()
+        
+  
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+//        self.navigationController?.navigationBar.barTintColor = UIColor.red
     }
 
     // MARK: - Table view data source
