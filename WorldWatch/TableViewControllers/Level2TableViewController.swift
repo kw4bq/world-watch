@@ -37,9 +37,8 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let l2node = root!.children[selectedL1IndexPath!.row].children[indexPath.row]
-        let l2childHasChildren: Bool = l2node.children.count > 0
         
-        if l2childHasChildren {
+        if l2node.children.count > 0 {
             
             let cellIdentifier = "Level2AltTableViewCell"
             

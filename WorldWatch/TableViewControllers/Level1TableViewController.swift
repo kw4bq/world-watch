@@ -56,18 +56,35 @@ class Level1TableViewController: UITableViewController, UINavigationControllerDe
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cellIdentifier = "Level1TableViewCell"
+        let l1node = root.children[indexPath.row]
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? Level1TableViewCell  else {
-            fatalError("The dequeued cell is not an instance of Level1TableViewCell.")
+        if l1node.children.count > 0 {
+            
+            let cellIdentifier = "Level1TableViewCell"
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? Level1TableViewCell  else {
+                fatalError("The dequeued cell is not an instance of Level1TableViewCell.")
+            }
+                                
+            cell.timezoneTextLabel.text = l1node.value
+            cell.accessoryType = .disclosureIndicator
+            
+            return cell
+            
+        } else {
+            
+            let cellIdentifier = "Level1TableViewCellGMT"
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? Level1TableViewCell  else {
+                fatalError("The dequeued cell is not an instance of Level1TableViewCell.")
+            }
+                                
+            cell.timezoneTextLabel.text = l1node.value
+            cell.accessoryType = .disclosureIndicator
+            
+            return cell
+            
         }
-                
-        let region = root.children[indexPath.row]
-        
-        cell.timezoneTextLabel.text = region.value
-        cell.accessoryType = .disclosureIndicator
-        
-        return cell
     }
 
     //MARK: Private Methods
