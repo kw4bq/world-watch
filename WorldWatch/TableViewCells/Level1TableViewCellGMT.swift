@@ -10,7 +10,8 @@ import UIKit
 
 class Level1TableViewCellGMT: UITableViewCell {
 
-    @IBOutlet weak var cityNestedTextLabel: UILabel!
+    @IBOutlet weak var smallTextLabel: UILabel!
+    @IBOutlet weak var timeZoneIdTextLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

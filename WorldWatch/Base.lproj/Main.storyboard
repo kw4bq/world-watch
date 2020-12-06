@@ -293,7 +293,7 @@
                                     <segue destination="Vp5-Md-DgY" kind="show" identifier="Level2Segue" id="2S3-D3-kx5"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Level1TableViewCellGMT" rowHeight="62" id="s9I-2e-nqf" customClass="Level2TableViewCell" customModule="WorldWatch" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Level1TableViewCellGMT" rowHeight="62" id="s9I-2e-nqf" customClass="Level1TableViewCellGMT" customModule="WorldWatch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="90" width="414" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s9I-2e-nqf" id="oc5-JX-HSY">
@@ -321,6 +321,10 @@
                                         <constraint firstItem="dLk-vO-CtH" firstAttribute="firstBaseline" secondItem="pEU-gX-yEF" secondAttribute="baseline" id="xbY-6l-WKx"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="smallTextLabel" destination="dLk-vO-CtH" id="mm8-wI-niP"/>
+                                    <outlet property="timeZoneIdTextLabel" destination="pEU-gX-yEF" id="srD-Nv-dIw"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

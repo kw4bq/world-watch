@@ -75,12 +75,12 @@ class Level1TableViewController: UITableViewController, UINavigationControllerDe
             
             let cellIdentifier = "Level1TableViewCellGMT"
             
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? Level1TableViewCell  else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? Level1TableViewCellGMT  else {
                 fatalError("The dequeued cell is not an instance of Level1TableViewCell.")
             }
                                 
-            cell.timezoneTextLabel.text = l1node.value
-            cell.accessoryType = .disclosureIndicator
+            cell.smallTextLabel.text = l1node.value
+            cell.timeZoneIdTextLabel.text = "GMT+0"
             
             return cell
             
