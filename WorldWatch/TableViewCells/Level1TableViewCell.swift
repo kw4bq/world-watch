@@ -1,5 +1,5 @@
 //
-//  CityNestedTableViewCell.swift
+//  Level1TableViewCell.swift
 //  test3
 //
 //  Created by emery on 6/13/20.
@@ -8,9 +8,10 @@
 
 import UIKit
 
-class RegionSmallAlternateTableViewCell: UITableViewCell {
+class Level1TableViewCell: UITableViewCell {
 
-    @IBOutlet weak var cityNestedTextLabel: UILabel!
+    @IBOutlet weak var timezoneTextLabel: UILabel!
+    @IBOutlet weak var timezoneIdLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

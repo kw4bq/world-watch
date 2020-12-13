@@ -1,6 +1,6 @@
 //
-//  CountryStateTableViewCell.swift
-//  test3
+//  Level2AltTableViewCell.swift
+//  World Watch
 //
 //  Created by emery on 6/13/20.
 //  Copyright © 2020 emery. All rights reserved.
@@ -8,10 +8,9 @@
 
 import UIKit
 
-class RegionSmallTableViewCell: UITableViewCell {
+class Level2AltTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var smallTextLabel: UILabel!
-    @IBOutlet weak var timeZoneIdTextLabel: UILabel!
+    @IBOutlet weak var cityNestedTextLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

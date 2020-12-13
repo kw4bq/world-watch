@@ -1,6 +1,6 @@
 //
-//  TimeZoneTableViewCell.swift
-//  test3
+//  Level1TableViewCellGMT.swift
+//  World Watch
 //
 //  Created by emery on 6/13/20.
 //  Copyright © 2020 emery. All rights reserved.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class RegionBigTableViewCell: UITableViewCell {
+class Level1TableViewCellGMT: UITableViewCell {
 
-    @IBOutlet weak var timezoneTextLabel: UILabel!
-    @IBOutlet weak var timezoneIdLabel: UILabel!
+    @IBOutlet weak var smallTextLabel: UILabel!
+    @IBOutlet weak var timeZoneIdTextLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

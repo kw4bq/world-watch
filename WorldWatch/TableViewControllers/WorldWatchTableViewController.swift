@@ -1,6 +1,6 @@
 //
 //  WorldWatchTableViewController.swift
-//  test3
+//  World Watch
 //
 //  Created by emery on 6/12/20.
 //  Copyright © 2020 emery. All rights reserved.
@@ -10,7 +10,10 @@ import UIKit
 import os.log
 
 
+
+
 class WorldWatchTableViewController: UITableViewController {
+    
     
     //MARK: Properties
      
@@ -33,13 +36,18 @@ class WorldWatchTableViewController: UITableViewController {
         //navigationItem.leftBarButtonItem = editButtonItem
         
         // Load any saved locations, otherwise load sample data.
-        if let savedLocations = loadLocations() {
-            locations += savedLocations
-        } else {
+        if let value = self.getObject(fileName: "worldwatch") as? [TZIdLocation] {
+            print("value is: \(value)")
+            locations += value
+        }  else {
             // Load the sample data.
             loadSampleLocations()
         }
         sortLocations()
+        
+  
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+//        self.navigationController?.navigationBar.barTintColor = UIColor.red
     }
 
     // MARK: - Table view data source
@@ -323,7 +331,12 @@ class WorldWatchTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             locations.remove(at: indexPath.row)
-            saveLocations()
+            //saveLocations()
+            if self.saveObject(fileName: "worldwatch", object: locations) {
+                print("saved")
+            } else {
+                print("not saved")
+            }
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -341,7 +354,7 @@ class WorldWatchTableViewController: UITableViewController {
         
         case "ShowDetail":
             
-            guard let regionDetailViewController = segue.destination as? WorldWatchViewController else {
+            guard let regionDetailViewController = segue.destination as? DetailViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             
@@ -370,7 +383,7 @@ class WorldWatchTableViewController: UITableViewController {
     
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         
-        if let sourceViewController = sender.source as? WorldWatchViewController, let location = sourceViewController.location {
+        if let sourceViewController = sender.source as? DetailViewController, let location = sourceViewController.location {
 
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update
@@ -384,25 +397,35 @@ class WorldWatchTableViewController: UITableViewController {
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
             
-            saveLocations()
+            //saveLocations()
             
-        } else if let sourceViewController = sender.source as? RegionSmallTableViewController, let location = sourceViewController.location {
+        } else if let sourceViewController = sender.source as? Level2TableViewController, let location = sourceViewController.location {
 
             let newIndexPath = IndexPath(row: locations.count, section: 0)
             
             locations.append(location)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
             
-            saveLocations()
+            //saveLocations()
+            if self.saveObject(fileName: "worldwatch", object: locations) {
+                print("saved")
+            } else {
+                print("not saved")
+            }
             
-        } else if let sourceViewController = sender.source as? RegionTinyTableViewController, let location = sourceViewController.location {
+        } else if let sourceViewController = sender.source as? Level3TableViewController, let location = sourceViewController.location {
 
             let newIndexPath = IndexPath(row: locations.count, section: 0)
             
             locations.append(location)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
             
-            saveLocations()
+            //saveLocations()
+            if self.saveObject(fileName: "worldwatch", object: locations) {
+                print("saved")
+            } else {
+                print("not saved")
+            }
         }
     }
     
@@ -444,8 +467,8 @@ class WorldWatchTableViewController: UITableViewController {
         guard let London = TZIdLocation(city: "London", timezone: "Europe/London") else {
             fatalError("Unable to instantiate London")
         }
-        guard let UTC = TZIdLocation(city: "UTC", timezone: "Africa/Banjul") else {
-            fatalError("Unable to instantiate UTC")
+        guard let UTC = TZIdLocation(city: "GMT", timezone: "GMT") else {
+            fatalError("Unable to instantiate GMT")
         }
         guard let Halifax = TZIdLocation(city: "Halifax", timezone: "America/Halifax") else {
             fatalError("Unable to instantiate Halifax")
@@ -482,21 +505,24 @@ class WorldWatchTableViewController: UITableViewController {
         })
     }
     
-    private func saveLocations() {
-        
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(locations, toFile: TZIdLocation.ArchiveURL.path)
-        
-        if isSuccessfulSave {
-            os_log("Location successfully saved.", log: OSLog.default, type: .debug)
-        } else {
-            os_log("Failed to save locations...", log: OSLog.default, type: .error)
-        }
-        sortLocations()
-    }
-    
-    private func loadLocations() -> [TZIdLocation]? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: TZIdLocation.ArchiveURL.path) as? [TZIdLocation]
-    }
-    
+//    private func saveLocations() {
+//
+//        do {
+//           let data = try NSKeyedArchiver.archivedData(withRootObject:locations,requiringSecureCoding:false)
+//           try data.write(to:TZIdLocation.ArchiveURL)
+//        }
+//        catch {
+//            os_log("Failed to save locations...", log: OSLog.default, type: .error)
+//        }
+//        os_log("Location successfully saved.", log: OSLog.default, type: .debug)
+//        sortLocations()
+//    }
+//
+//    private func loadLocations() -> [TZIdLocation]? {
+//        //return NSKeyedUnarchiver.unarchiveObject(withFile: TZIdLocation.ArchiveURL.path) as? [TZIdLocation]
+//        //return NSKeyedUnarchiver.unarchivedObject(ofClass: [TZIdLocation], from: locations)
+//        return NSKeyedUnarchiver.unarchivedArrayOfObjects(ofClass: TZIdLocation, from: <#T##Data#>)
+//    }
     
 }
+

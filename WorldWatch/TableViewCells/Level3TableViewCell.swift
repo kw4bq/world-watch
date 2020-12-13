@@ -1,14 +1,13 @@
 //
-//  TinyTableViewCell.swift
-//  test3
-//
+//  Level3TableViewCell.swift
+//  World Watch
 //  Created by emery on 6/13/20.
 //  Copyright © 2020 emery. All rights reserved.
 //
 
 import UIKit
 
-class RegionTinyTableViewCell: UITableViewCell {
+class Level3TableViewCell: UITableViewCell {
 
     @IBOutlet weak var tinyLabel: UILabel!
     @IBOutlet weak var tinyTzIdLabel: UILabel!
