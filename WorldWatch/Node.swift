@@ -12,6 +12,7 @@ import Foundation
 class Node<T> {
     
     var value: T
+    
     weak var parent: Node?
     var children = [Node<T>]()
     
@@ -24,6 +25,10 @@ class Node<T> {
         node.parent = self
     }
     
+    func test() -> String {
+        return String(describing:self.value)
+    }
+    
     func desc(_ s:String? = nil) -> String {
         var me = String(describing:self.value)
         if let prev = s {
@@ -33,8 +38,10 @@ class Node<T> {
     }
     
     // CST
-    func localized() -> String? {
-        guard let tz = TimeZone.init(identifier: self.desc()) else {
+    func localized() -> String? {        
+        var tzid = self.desc()
+        tzid.remove(at: tzid.startIndex)
+        guard let tz = TimeZone.init(identifier: tzid) else {
             return "ERROR"
         }
         var str: String? = ""

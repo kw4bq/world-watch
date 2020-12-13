@@ -62,9 +62,9 @@ class TZIdLocation: NSObject, NSCoding  {
     }
 
     
-    func getAbbr() -> String? {
-        return TimeZone.init(identifier: self.timezone)?.abbreviation()
-    }
+//    func getAbbr() -> String? {
+//        return TimeZone.init(identifier: self.timezone)?.abbreviation()
+//    }
     
     // Central Standard Time
     func getName() -> String? {
@@ -76,22 +76,22 @@ class TZIdLocation: NSObject, NSCoding  {
         }
     }
     
-    func getShortGenericName() -> String? {
-        let tz = TimeZone.init(identifier: self.timezone)
-        return tz?.localizedName(for: .shortGeneric, locale: .current)
-    }
+//    func getShortGenericName() -> String? {
+//        let tz = TimeZone.init(identifier: self.timezone)
+//        return tz?.localizedName(for: .shortGeneric, locale: .current)
+//    }
     
-    // CST
-    func getShortName() -> String? {
-        let tz = TimeZone.init(identifier: self.timezone)
-        var str: String? = ""
-        if (tz?.isDaylightSavingTime(for: Date()))! {
-            str = tz?.localizedName(for: .shortDaylightSaving, locale: .current)
-        } else {
-            str = tz?.localizedName(for: .shortStandard, locale: .current)
-        }
-        return str
-    }
+//    // CST
+//    func getShortName() -> String? {
+//        let tz = TimeZone.init(identifier: self.timezone)
+//        var str: String? = ""
+//        if (tz?.isDaylightSavingTime(for: Date()))! {
+//            str = tz?.localizedName(for: .shortDaylightSaving, locale: .current)
+//        } else {
+//            str = tz?.localizedName(for: .shortStandard, locale: .current)
+//        }
+//        return str
+//    }
     
     func getCurrentTimeWithTimeZone() -> String? {
         let currentDate = Date()
@@ -103,15 +103,15 @@ class TZIdLocation: NSObject, NSCoding  {
         return dateString
     }
     
-    func getCurrentTwelveHourWithTimeZone() -> String? {
-        let currentDate = Date()
-        let format = DateFormatter()
-        format.timeZone = TimeZone.init(identifier: self.timezone)
-        format.dateFormat = "hh:mm a"
-
-        let dateString = format.string(from: currentDate)
-        return dateString
-    }
+//    func getCurrentTwelveHourWithTimeZone() -> String? {
+//        let currentDate = Date()
+//        let format = DateFormatter()
+//        format.timeZone = TimeZone.init(identifier: self.timezone)
+//        format.dateFormat = "hh:mm a"
+//
+//        let dateString = format.string(from: currentDate)
+//        return dateString
+//    }
     
     func getCurrentHourWithTimeZone() -> Int? {
         let currentDate = Date()
@@ -136,8 +136,8 @@ class TZIdLocation: NSObject, NSCoding  {
     
     //MARK: Archiving Paths
      
-    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("timezones")
+//    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+//    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("timezones")
     
     //MARK: Types
      

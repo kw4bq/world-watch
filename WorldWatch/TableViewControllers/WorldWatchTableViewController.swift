@@ -467,8 +467,8 @@ class WorldWatchTableViewController: UITableViewController {
         guard let London = TZIdLocation(city: "London", timezone: "Europe/London") else {
             fatalError("Unable to instantiate London")
         }
-        guard let UTC = TZIdLocation(city: "UTC", timezone: "Africa/Banjul") else {
-            fatalError("Unable to instantiate UTC")
+        guard let UTC = TZIdLocation(city: "GMT", timezone: "GMT") else {
+            fatalError("Unable to instantiate GMT")
         }
         guard let Halifax = TZIdLocation(city: "Halifax", timezone: "America/Halifax") else {
             fatalError("Unable to instantiate Halifax")

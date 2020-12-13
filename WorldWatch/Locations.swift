@@ -44,6 +44,9 @@ extension UIViewController {
         let arrayPaths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return arrayPaths[0]
     }
+    
+//    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+//    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("timezones")
 }
 
 //1: File name must be unique for your object otherwise, it will overwrite the older object if saved with same name. Using fileName we are creating a directory file path URL
