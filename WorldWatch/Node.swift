@@ -37,6 +37,12 @@ class Node<T> {
         return self.parent?.desc(me) ?? me
     }
     
+    func mytzid() -> String {
+        var tzid = self.desc()
+        tzid.remove(at: tzid.startIndex)
+        return tzid
+    }
+    
     // CST
     func localized() -> String? {        
         var tzid = self.desc()

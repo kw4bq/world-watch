@@ -94,9 +94,12 @@ class Level2TableViewController: UITableViewController, UINavigationControllerDe
                 fatalError("The selected cell is not being displayed by the table")
             }
             
+            let l2node = root!.children[selectedL1IndexPath!.row].children[indexPath.row]
+            
             //let selectedSmall = smallRegions[indexPath.row]
             
             //print("Selected small", selectedSmall.city, selectedSmall.timezone)
+            location = TZIdLocation(city: l2node.value, timezone: l2node.mytzid())
 
             //location = TZIdLocation(city: selectedSmall.city, timezone: selectedSmall.timezone)
             

@@ -90,6 +90,9 @@ class Level3TableViewController: UITableViewController, UINavigationControllerDe
                 fatalError("The selected cell is not being displayed by the table")
             }
             
+            
+            let l3node = root!.children[selectedL1IndexPath!.row].children[selectedL2IndexPath!.row].children[indexPath.row]
+            
             //let selectedTiny = tinyLocations[indexPath.row]
             //print(selectedTiny)
             
@@ -97,7 +100,7 @@ class Level3TableViewController: UITableViewController, UINavigationControllerDe
             //let tzlabel = selectedTinyCell.tinyTzIdLabel.text ?? ""
             
             // Set the location to be passed to WorldWatchTableViewController after the unwind segue.
-            //location = TZIdLocation(city: city, timezone: tzlabel)
+            location = TZIdLocation(city: l3node.value, timezone: l3node.mytzid())
             
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
