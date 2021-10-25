@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f7s-kP-vAc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f7s-kP-vAc">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,14 +19,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WorldWatchTableViewCell" rowHeight="62" id="V5a-jv-GMn" customClass="WorldWatchTableViewCell" customModule="WorldWatch" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="62"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="V5a-jv-GMn" id="B19-wl-xLd">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sun, 14 Jun 2020" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLR-vU-EQT">
-                                            <rect key="frame" x="67" y="43" width="189" height="12"/>
+                                            <rect key="frame" x="67" y="43" width="161" height="12"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -46,16 +46,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buenos_Aires" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99G-O8-ya2">
-                                            <rect key="frame" x="67" y="6" width="189" height="24"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="189" id="vTH-xQ-fyC"/>
-                                            </constraints>
+                                            <rect key="frame" x="67" y="6" width="161" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Australian Eastern Standard Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rav-E7-SVf">
-                                            <rect key="frame" x="67" y="28" width="189" height="14"/>
+                                            <rect key="frame" x="67" y="28" width="161" height="14"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -82,12 +79,15 @@
                                         <constraint firstItem="99G-O8-ya2" firstAttribute="leading" secondItem="qLR-vU-EQT" secondAttribute="leading" id="8Hg-Py-nZE"/>
                                         <constraint firstItem="JBz-VH-8Ws" firstAttribute="top" secondItem="B19-wl-xLd" secondAttribute="topMargin" id="FpV-4D-PJO"/>
                                         <constraint firstItem="99G-O8-ya2" firstAttribute="top" secondItem="B19-wl-xLd" secondAttribute="topMargin" constant="-5" id="G61-d3-iJg"/>
+                                        <constraint firstItem="cpf-fm-efT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="99G-O8-ya2" secondAttribute="trailing" constant="8" symbolic="YES" id="IwC-YR-XCt"/>
+                                        <constraint firstItem="vbd-KG-iQE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rav-E7-SVf" secondAttribute="trailing" constant="8" symbolic="YES" id="KK7-TN-8Gn"/>
                                         <constraint firstItem="99G-O8-ya2" firstAttribute="leading" secondItem="JBz-VH-8Ws" secondAttribute="trailing" constant="14" id="NxJ-m6-tM5"/>
                                         <constraint firstItem="rav-E7-SVf" firstAttribute="baseline" secondItem="vbd-KG-iQE" secondAttribute="baseline" id="UHb-PC-3gX"/>
                                         <constraint firstItem="rav-E7-SVf" firstAttribute="leading" secondItem="qLR-vU-EQT" secondAttribute="leading" id="Urp-at-zw3"/>
                                         <constraint firstItem="cpf-fm-efT" firstAttribute="trailing" secondItem="s92-OV-b3q" secondAttribute="trailing" id="Ya2-bt-mlq"/>
                                         <constraint firstItem="s92-OV-b3q" firstAttribute="top" secondItem="cpf-fm-efT" secondAttribute="bottom" constant="13" id="YaS-pa-Ihx"/>
                                         <constraint firstItem="rav-E7-SVf" firstAttribute="firstBaseline" secondItem="vbd-KG-iQE" secondAttribute="firstBaseline" id="dp8-MZ-c4q"/>
+                                        <constraint firstItem="s92-OV-b3q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qLR-vU-EQT" secondAttribute="trailing" constant="8" symbolic="YES" id="eEb-ZL-6C2"/>
                                         <constraint firstItem="rav-E7-SVf" firstAttribute="trailing" secondItem="qLR-vU-EQT" secondAttribute="trailing" id="fMX-zk-lbZ"/>
                                         <constraint firstItem="cpf-fm-efT" firstAttribute="baseline" secondItem="99G-O8-ya2" secondAttribute="baseline" id="fvS-bq-Yb7"/>
                                         <constraint firstItem="rav-E7-SVf" firstAttribute="top" secondItem="B19-wl-xLd" secondAttribute="topMargin" constant="17" id="mmo-pc-bPQ"/>
@@ -269,7 +269,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Level1TableViewCell" rowHeight="62" id="F0k-mn-LIu" customClass="Level1TableViewCell" customModule="WorldWatch" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="62"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F0k-mn-LIu" id="jTD-uX-vYx">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
@@ -294,7 +294,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Level1TableViewCellGMT" rowHeight="62" id="s9I-2e-nqf" customClass="Level1TableViewCellGMT" customModule="WorldWatch" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="90" width="414" height="62"/>
+                                <rect key="frame" x="0.0" y="106.5" width="414" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s9I-2e-nqf" id="oc5-JX-HSY">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
@@ -354,7 +354,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Level2TableViewCell" rowHeight="62" id="cEm-ZB-LIJ" customClass="Level2TableViewCell" customModule="WorldWatch" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="62"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cEm-ZB-LIJ" id="b9j-H0-3oV">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
@@ -388,7 +388,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Level2AltTableViewCell" rowHeight="62" id="VJK-o3-iss" customClass="Level2AltTableViewCell" customModule="WorldWatch" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="90" width="414" height="62"/>
+                                <rect key="frame" x="0.0" y="106.5" width="414" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VJK-o3-iss" id="e2G-gU-v3X">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
@@ -435,7 +435,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Level3TableViewCell" rowHeight="62" id="lac-dH-raX" customClass="Level3TableViewCell" customModule="WorldWatch" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="62"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lac-dH-raX" id="9Eh-w0-cec">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
