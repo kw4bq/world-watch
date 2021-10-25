@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -143,121 +142,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nqv-Be-sYQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="179.71014492753625" y="132.58928571428572"/>
-        </scene>
-        <!--Display Name-->
-        <scene sceneID="2Ll-Y2-93u">
-            <objects>
-                <viewController id="Jcr-LI-394" customClass="DetailViewController" customModule="WorldWatch" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nrj-Eu-6I9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Je9-wi-XHi">
-                                <rect key="frame" x="20" y="108" width="374" height="406.5"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Display Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Il-Mj-OVA">
-                                        <rect key="frame" x="0.0" y="0.0" width="165.5" height="37"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                    </textField>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ipp-qh-1c3">
-                                        <rect key="frame" x="0.0" y="45" width="124" height="124"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="America/Argentina/Buenos_Aires" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXR-av-Z3h">
-                                        <rect key="frame" x="0.0" y="177" width="250" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Eastern Daylight Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSa-hD-VSX">
-                                        <rect key="frame" x="0.0" y="205.5" width="166.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="23:54" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBc-VL-F5D">
-                                        <rect key="frame" x="0.0" y="234" width="58" height="26.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Sunday June 15, 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahq-nG-o92">
-                                        <rect key="frame" x="0.0" y="268.5" width="195" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="GMT-4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HrX-jg-Chy">
-                                        <rect key="frame" x="0.0" y="300.5" width="54" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Local offset: -8 hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVY-8S-jv8">
-                                        <rect key="frame" x="0.0" y="329" width="163.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Is Daylight savings time? Yes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jI-RF-t0l">
-                                        <rect key="frame" x="0.0" y="357.5" width="218.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Next DST transisition: Sunday August 3, 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5O-SM-TD1">
-                                        <rect key="frame" x="0.0" y="386" width="347" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="hzv-GK-DrY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Je9-wi-XHi" firstAttribute="leading" secondItem="hzv-GK-DrY" secondAttribute="leading" constant="20" id="BfG-SF-5ry"/>
-                            <constraint firstItem="hzv-GK-DrY" firstAttribute="trailing" secondItem="Je9-wi-XHi" secondAttribute="trailing" constant="192" id="eMQ-A8-MeW"/>
-                            <constraint firstItem="Je9-wi-XHi" firstAttribute="top" secondItem="hzv-GK-DrY" secondAttribute="top" constant="20" id="vdm-zv-CHh"/>
-                            <constraint firstItem="hzv-GK-DrY" firstAttribute="trailing" secondItem="Je9-wi-XHi" secondAttribute="trailing" constant="20" id="wCP-aX-RbL"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="eMQ-A8-MeW"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <navigationItem key="navigationItem" title="Display Name" id="oT9-Q4-Gja">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Gaq-P0-bGe">
-                            <connections>
-                                <action selector="cancel:" destination="Jcr-LI-394" id="qpc-eT-ZG2"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Z0T-Sz-cI6">
-                            <connections>
-                                <segue destination="E9f-XJ-Iir" kind="unwind" unwindAction="unwindToMealListWithSender:" id="3Yy-cw-JX9"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="dateLabel" destination="ahq-nG-o92" id="NqK-ry-WMm"/>
-                        <outlet property="gmtOffsetLabel" destination="HrX-jg-Chy" id="Rv7-B7-aBR"/>
-                        <outlet property="isDSTLabel" destination="0jI-RF-t0l" id="8gD-xr-YfW"/>
-                        <outlet property="localOffsetLabel" destination="zVY-8S-jv8" id="RXN-tT-3BK"/>
-                        <outlet property="nameTextField" destination="6Il-Mj-OVA" id="sxh-X3-YZO"/>
-                        <outlet property="nextDSTLabel" destination="l5O-SM-TD1" id="8au-6X-Q28"/>
-                        <outlet property="saveButton" destination="Z0T-Sz-cI6" id="WUZ-t2-sGQ"/>
-                        <outlet property="standardNameLabel" destination="FSa-hD-VSX" id="wv4-mR-Fcg"/>
-                        <outlet property="timeLabel" destination="qBc-VL-F5D" id="5rr-wW-Epr"/>
-                        <outlet property="timezoneImageView" destination="Ipp-qh-1c3" id="C0K-Vo-sE0"/>
-                        <outlet property="timezoneLabel" destination="QXR-av-Z3h" id="2Xd-Sn-kO6"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HwX-nF-fP9" sceneMemberID="firstResponder"/>
-                <exit id="E9f-XJ-Iir" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="2590" y="133"/>
         </scene>
         <!--Region-->
         <scene sceneID="h5y-LB-YJf">
@@ -485,24 +369,6 @@
                 <exit id="hwF-bB-OlY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2590" y="-535"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="lp0-LX-9Ne">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MG7-3J-SR9" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sLL-Y4-BUB">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Jcr-LI-394" kind="relationship" relationship="rootViewController" id="0pe-eA-SL5"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uWH-sK-vFY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1800" y="133"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AHm-at-vZv">
